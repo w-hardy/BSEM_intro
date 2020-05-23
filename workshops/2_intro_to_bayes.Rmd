@@ -1,0 +1,115 @@
+---
+title: "Introduction to Bayesian statistics"
+author: "Will Hardy"
+date: "`r Sys.Date()`"
+output: bookdown::html_document2
+biblio-style: apalike
+bibliography:
+- ../../../../references/library.bib
+- ../packages.bib
+always_allow_html: yes
+---
+
+
+```{r, echo=FALSE}
+knitr::write_bib(c(.packages(), 'bookdown', 'knitr', 'rmarkdown'), '../packages.bib')
+```
+
+
+# Introduction
+
+* What is it?
+  * Bayesian statistics assumes that all parameters (e.g., corelation coefficients) have a distribution.
+  * Frequentist statistics (a.k.a. classical or "normal" statistics) assumes that there is one try population parameter (e.g., there is one true coreelation coefficient).
+  * Posterior = (prior * likelihood) / (probability distribution).
+  * The probability distribution is only important with multiple hypotheses or datasets, so in many instances the formula can be simplified to: posterior = prior * likelihood or even more simply, posterior = what do we know before hand * what does the data say.
+* Why would I use it?
+  * Why not? Just becasue it is not "normal" is not a reaosn to use it as long as you effectivley communicate your results.
+  * Bayesian statistics allows you to:
+    * Incoporate (un)certainty in your model.
+    * Update your knowledge.
+  * Some of the statistics are easier to interpret.
+    * There are no p-values.
+    * Credibility intervals (Bayesian) vs confidence intervals (Frequentist).
+      * A 95% confidence interval: in the long run, 95% of the confidence intervals will contain the true population value.
+      * A 95% credibility interval: there is 95% probability that the population value lies within the upper and lower bounds.
+  * Technical reasons (e.g., identifying complex models, improving convergence, more accurate parameter estimaes, non-normal data, missing data handling).
+  * Small samples.
+    * Bayes is not based on central limit theorem.
+    * It is also not a magical solution to small sample problems.
+
+
+## Priors
+
+* Specific to populations - different populaitons will need different priors.
+* Information about the parameter.
+* Usually made up of three components:
+  * Shape (e.g., normal).
+  * Location (e.g., mean).
+  * Certainty (e.g., standard deviation).
+* Take the scale of the data, so if you want to use standardised effects then you must use standardised data.
+* There are lots of different names for types of priors, however they can be split into three main types:
+  * Uninformative/flat prior.
+  * Weakly informative.
+  * Strongly informative.
+* Effects on the posterior:
+  * Priors need be specified before looking at the data as they will influence the results of any analyses.
+  * Strongly informative priors will result in a *prior driven posterior* where the results will be closer to the prior than the likelihood.
+  * Weakly informative priors will result in a *data driven posterior* where the reuslts will be close to the likelihood than the prior.
+  * Sample size is also important, the larger the sample, the larger the influce of the likelihood on the posterior.
+  * https://www.rensvandeschoot.com/fbi-the-app/
+* Where do priors come from?
+  * Prior research (e.g., meta analyses, individual studies, pilot studies).
+  * Expert elicitation.
+  * Software defaults if you don't specify them yourself.
+    * Different software = different defaults [@vanErp2018].
+* Prior data conflict.
+  * Can be because the prior chosen does not represent the sample populations (e.g., the prior is based on the general population and your sample population is the "healthy ageing population").
+  * Can be of interest and the outcome of a study (e.g., the ability of teachers to predict students performance).
+  * Only likely to happen when you uses strongly informative priors.
+* Documenting priors.
+  * You should explain which priors were chosen and why.
+  * This should be documented and proveided with any analyses.
+
+
+## Estimating parameters
+
+* Gibbs sampler.
+  * Estimates the parameter assuming that the other parameters are known.
+    * Using a random start value, a parameter can be estimated. This parameter estimate is then passed to the next iteration of computation to replace the random start value.
+  * Simplifies computation.
+  * Chains represent starting values.
+  * Using multiple chains reduces the likelihood of accepting *local convergence*.
+    * A single chain may exhibit a stable mean and variance for a sufficent number of iterations to be accepted given a set of convergence criteria. However, that chain may, given enough time, change its mean. Two chains with different start values are less likely to display local convergence than one chain is, the probablity of three chains diplaying local convergence is smaller again, and so it goes on.
+  * *Burn-in* phase to remove the influence of starting values.
+  * More chains and/or more iterations allow for greater precision of estimates.
+  * Want stable means and variances within trace plots.
+  * If the model is correctly specified, it will *eventually* identify the target distribution.
+  * Convergence.
+    * Gibbs sampler must run for *t* iterations for the burn-in phase, where *t* is great enough to remove the influence of the start values.
+    * Convergence is when all chains reach the same target distribution (i.e., there would be no way to tell whcih chain the sample draw was from).
+    * To check that convergence is stable, it is normal to double the number of iterations to check that convergence remains.
+    * 9/10 times increasing the number of iterations will solve convergence issues.
+    * Including trace plots with manuscripts will allow others to (visually) assess convergence.
+    * It is also important to inspect posterior distributions - Do they look like you expected them to? Do they make sense?
+    * Autocorrelation is when an iteration is dependent on the last. One way to deal with auto correlation is through *thinning* where you only retain the *n*th sample. However, this does not acutally change the estimate and some would argue that it is unnecessary if the trace plots exhibit stable means and variances.
+      * Thinning doesn't get rid of autocorrelation, it hides it. If using thinning, you require more iterations to recover precision.
+  * There are several ways to assess convergence [@Kaplan2012]:
+    * Inspecting trace plots for stability and good mixing.
+    * Potential Scale Reduction Factor [PSR; @Gelman1992]. Different cut-off criteria, usually >1.1 or >1.05.
+      * In Mplus, with a single chain, PSR is defined using the third and fourth quarters of the chain.
+    * Kolmogorov-Smirnov (K-S) tests: a test of equality of the posterior parameter distributions across the different chains using draws from the chains.
+    * Geweke z-statistic: compares the first and last half of the post burn-in iterations. Significant test is evidence of local convergence.
+* Sensitivity to priors.
+  * The effect of priors on the posterior distribution was described above. It is important to provided evidence of how robust the estimates are, or how *sensitive* they are to the prior specification. 
+  * **This is not an attempt to find the "best" prior (e.g., the one that provides a posterior that supports your hypotheses).** And that is why it is important to specify your priors **before** you conduct any analyses.
+  * Analyses should be re-run with both more and less informative priors. Differences in parameter estimates should be reported both relative to the original estimate and in absolute values. This may be a sentence or short paragrah in the results, supported with supplementary information.
+* Depaoli and van de Schoot [@Depaoli2017] provide a checklist to help researchers avoid the naïve use of Bayesian statistics.
+
+
+## Regression exercise
+
+https://www.rensvandeschoot.com/tutorials/ > WAMBS checklist > exercise in programme of your choice.
+
+
+## References

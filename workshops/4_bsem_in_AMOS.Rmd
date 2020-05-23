@@ -1,0 +1,31 @@
+# Running BSEM analyses in AMOS
+
+1. Missing data
+   1. Missing data can be dealt with prior to BSEM analysis in a variety of ways ranging from the simple (e.g., listwise deletion, mean imputation) to far more complicated mothods (e.g., multiple imputation).
+   2. It is beyond the scope of this course to cover the various techniques and when to use them.
+   3. By default, AMOS will do XX when there is missing data.
+2. Standardise variables
+3. Model specification
+   1. Major loadings only
+   2. Major loadings + minor cross-loadings
+   3. Major loadings + minor cross-loadings + approximate zero covariance
+4. Additional output
+   1. Indirect moments
+5. Run
+6. Prior specification
+   1. Default for all variables in AMOS is an uninformative prior  (uniform; - 1^38 to +1^38).
+7. Convergence: 
+   1. As far as I can tell, AMOS only uses a single MCMC chain.
+   2. PSR
+   3. SC for individual parameters
+   4. Trace plots for each parameter
+   5. Posterior
+      1. First and last box creates polygons for the first and last third of the samples
+8. Fit: 
+   1. PPp
+   2. Chi-square
+   3. DIC
+9. Parameter estimates
+10. Sensitivity analyses
+    1. More informative priors
+    2. Less informative priors

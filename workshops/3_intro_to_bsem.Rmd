@@ -1,0 +1,44 @@
+---
+title: "Introduction to Bayesian structural equation modelling"
+author: "Will Hardy"
+date: "`r Sys.Date()`"
+output: bookdown::html_document2
+biblio-style: apalike
+bibliography:
+- ../../../../references/library.bib
+- ../packages.bib
+always_allow_html: yes
+---
+
+
+```{r, echo=FALSE}
+knitr::write_bib(c(.packages(), 'bookdown', 'knitr', 'rmarkdown'), '../packages.bib')
+```
+
+
+# Introduction
+
+* What is Bayesian structural equation modelling (BSEM)? In their paper introducing BSEM, Muthén and Asparouhov [-@Muthen2012, p 316] stated that:
+
+> It is intended to produce an analysis that better reflects the researcher’s theories and prior beliefs. It does so by systematically using informative priors for parameters that should not be freely estimated according to the researcher’s theories and prior beliefs. In a frequentist analysis, such parameters are typically fixed at zero or are constrained to be equal to other parameters. In key applications, freeing these parameters would, in fact, produce a nonidentified model. The Bayesian analysis, however, identifies the model by substantively driven small-variance priors. It should be recognized that BSEM refers to the specific Bayesian approach proposed here of using informative, small-variance priors to reflect the researcher’s theories and prior beliefs. Typically, this would be combined with the use of noninformative priors for parameters that would not be restricted in a corresponding ML analysis. For example, major loadings would have a normal prior with a very large variance. The BSEM approach of using informative priors is applicable to any constrained parameter in an SEM.
+
+## What does that mean? 
+
+* Typical maximum-likelihood (ML) approaches to confirmatory factor analysis (CFA) only allow indicators to load on their intended factors and fix cross-loadings (i.e., loadings onto non-intended factors) and the correlation between residual-error terms to zero. This approach is said to be overly restrictive and often leads to rejection of models based on the Chi-square test of good fit [@Marsh2009].
+* Researchers therefore tend to rely on other fit-indices to justify accepting a model when the Chi-square test suggests that they should not, as they suggest it is overly sensitive to trivial misfit [@Fong2013]. However, these indicies will also often reject the model, especially when there are a large number of indicators [@Marsh2004]. This can lead to researchers relaxing conventional criteria for model fit and/or modifying their model post-hoc to improve the fit, which can lead to the acceptance of a poor model or one with a fit that has been improved by chance based on iterative model respesifcaiton using modification indices [@MacCallum1992].
+* Whilst cross-loadings and correlated errors terms can be specified in ML-CFA, specifiying too many will often lead to an underidentified model [@Asparouhov2009].
+* Exploratory structural equation modelling is one alternative to tradition CFA approaches that less restrictive (i.e., it allows for cross-loadings), however it still does not allow for correlated residual error terms, nor does is it possible to specify how close to zero the cross-loadings shoudl be [@Muthen2012].
+* BSEM allows the specification of both cross-loadings and residual correlations that are *approximately zero* this is done by using small-variance (i.e., strongly informative) priors on these parameters. What approximatley zero means is defined by the user and may be informed by theory, however if these are large variance priors the model may be underidentified [@Muthen2012].
+* The user may or may not specify priors for the intended factor loadings, if they are not specified, the software default will be used.
+* It is important to consider priors before analysing the data, especially in small samples, as there is growing evidence that the "naïve" use of priors can lead to biased estimates, sometimes worse than would be obtained through ML estimation [@Smid2019].
+
+## Model fit
+
+Model fit can in BSEMs can be assessed in using a number of metrics:
+
+* Number of free parameters
+* Posterior Predictive p-value (PPp value)
+* 95% Confidence Interval for the Difference Between the Observed and the Replicated Chi-Square Values
+* Deviance Information Criterion (DIC)
+
+## References
