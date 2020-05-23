@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Introduction | Introduction to Bayesian structrual equation modelling</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Introduction | Introduction to Bayesian structrual equation modelling" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Introduction | Introduction to Bayesian structrual equation modelling" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Will Hardy" />
+
+
+<meta name="date" content="2020-05-23" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="introduction-to-structural-equation-modelling.html"/>
+<link rel="next" href="introduction-1.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
+<li class="chapter" data-level="2" data-path="introduction-to-structural-equation-modelling.html"><a href="introduction-to-structural-equation-modelling.html"><i class="fa fa-check"></i><b>2</b> Introduction to structural equation modelling</a><ul>
+<li class="chapter" data-level="2.1" data-path="introduction-to-structural-equation-modelling.html"><a href="introduction-to-structural-equation-modelling.html#specification"><i class="fa fa-check"></i><b>2.1</b> Specification</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction-to-structural-equation-modelling.html"><a href="introduction-to-structural-equation-modelling.html#identification"><i class="fa fa-check"></i><b>2.2</b> Identification</a></li>
+<li class="chapter" data-level="2.3" data-path="introduction-to-structural-equation-modelling.html"><a href="introduction-to-structural-equation-modelling.html#estimation"><i class="fa fa-check"></i><b>2.3</b> Estimation</a></li>
+<li class="chapter" data-level="2.4" data-path="introduction-to-structural-equation-modelling.html"><a href="introduction-to-structural-equation-modelling.html#data-collection-and-preparation"><i class="fa fa-check"></i><b>2.4</b> Data collection and preparation</a></li>
+<li class="chapter" data-level="2.5" data-path="introduction-to-structural-equation-modelling.html"><a href="introduction-to-structural-equation-modelling.html#respecification"><i class="fa fa-check"></i><b>2.5</b> Respecification</a></li>
+<li class="chapter" data-level="2.6" data-path="introduction-to-structural-equation-modelling.html"><a href="introduction-to-structural-equation-modelling.html#reporting-results"><i class="fa fa-check"></i><b>2.6</b> Reporting results</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>3</b> Introduction</a><ul>
+<li class="chapter" data-level="3.1" data-path="introduction.html"><a href="introduction.html#priors"><i class="fa fa-check"></i><b>3.1</b> Priors</a></li>
+<li class="chapter" data-level="3.2" data-path="introduction.html"><a href="introduction.html#estimating-parameters"><i class="fa fa-check"></i><b>3.2</b> Estimating parameters</a></li>
+<li class="chapter" data-level="3.3" data-path="introduction.html"><a href="introduction.html#regression-exercise"><i class="fa fa-check"></i><b>3.3</b> Regression exercise</a></li>
+<li class="chapter" data-level="3.4" data-path="introduction.html"><a href="introduction.html#references"><i class="fa fa-check"></i><b>3.4</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="introduction-1.html"><a href="introduction-1.html"><i class="fa fa-check"></i><b>4</b> Introduction</a><ul>
+<li class="chapter" data-level="4.1" data-path="introduction-1.html"><a href="introduction-1.html#what-does-that-mean"><i class="fa fa-check"></i><b>4.1</b> What does that mean?</a></li>
+<li class="chapter" data-level="4.2" data-path="introduction-1.html"><a href="introduction-1.html#model-fit"><i class="fa fa-check"></i><b>4.2</b> Model fit</a></li>
+<li class="chapter" data-level="4.3" data-path="introduction-1.html"><a href="introduction-1.html#references-1"><i class="fa fa-check"></i><b>4.3</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="running-bsem-analyses-in-amos.html"><a href="running-bsem-analyses-in-amos.html"><i class="fa fa-check"></i><b>5</b> Running BSEM analyses in AMOS</a></li>
+<li class="chapter" data-level="" data-path="references-2.html"><a href="references-2.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to Bayesian structrual equation modelling</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="introduction" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Introduction</h1>
+<ul>
+<li>What is it?
+<ul>
+<li>Bayesian statistics assumes that all parameters (e.g., corelation coefficients) have a distribution.</li>
+<li>Frequentist statistics (a.k.a. classical or “normal” statistics) assumes that there is one try population parameter (e.g., there is one true coreelation coefficient).</li>
+<li>Posterior = (prior * likelihood) / (probability distribution).</li>
+<li>The probability distribution is only important with multiple hypotheses or datasets, so in many instances the formula can be simplified to: posterior = prior * likelihood or even more simply, posterior = what do we know before hand * what does the data say.</li>
+</ul></li>
+<li>Why would I use it?
+<ul>
+<li>Why not? Just becasue it is not “normal” is not a reaosn to use it as long as you effectivley communicate your results.</li>
+<li>Bayesian statistics allows you to:
+<ul>
+<li>Incoporate (un)certainty in your model.</li>
+<li>Update your knowledge.</li>
+</ul></li>
+<li>Some of the statistics are easier to interpret.
+<ul>
+<li>There are no p-values.</li>
+<li>Credibility intervals (Bayesian) vs confidence intervals (Frequentist).
+<ul>
+<li>A 95% confidence interval: in the long run, 95% of the confidence intervals will contain the true population value.</li>
+<li>A 95% credibility interval: there is 95% probability that the population value lies within the upper and lower bounds.</li>
+</ul></li>
+</ul></li>
+<li>Technical reasons (e.g., identifying complex models, improving convergence, more accurate parameter estimaes, non-normal data, missing data handling).</li>
+<li>Small samples.
+<ul>
+<li>Bayes is not based on central limit theorem.</li>
+<li>It is also not a magical solution to small sample problems.</li>
+</ul></li>
+</ul></li>
+</ul>
+<div id="priors" class="section level2">
+<h2><span class="header-section-number">3.1</span> Priors</h2>
+<ul>
+<li>Specific to populations - different populaitons will need different priors.</li>
+<li>Information about the parameter.</li>
+<li>Usually made up of three components:
+<ul>
+<li>Shape (e.g., normal).</li>
+<li>Location (e.g., mean).</li>
+<li>Certainty (e.g., standard deviation).</li>
+</ul></li>
+<li>Take the scale of the data, so if you want to use standardised effects then you must use standardised data.</li>
+<li>There are lots of different names for types of priors, however they can be split into three main types:
+<ul>
+<li>Uninformative/flat prior.</li>
+<li>Weakly informative.</li>
+<li>Strongly informative.</li>
+</ul></li>
+<li>Effects on the posterior:
+<ul>
+<li>Priors need be specified before looking at the data as they will influence the results of any analyses.</li>
+<li>Strongly informative priors will result in a <em>prior driven posterior</em> where the results will be closer to the prior than the likelihood.</li>
+<li>Weakly informative priors will result in a <em>data driven posterior</em> where the reuslts will be close to the likelihood than the prior.</li>
+<li>Sample size is also important, the larger the sample, the larger the influce of the likelihood on the posterior.</li>
+<li><a href="https://www.rensvandeschoot.com/fbi-the-app/" class="uri">https://www.rensvandeschoot.com/fbi-the-app/</a></li>
+</ul></li>
+<li>Where do priors come from?
+<ul>
+<li>Prior research (e.g., meta analyses, individual studies, pilot studies).</li>
+<li>Expert elicitation.</li>
+<li>Software defaults if you don’t specify them yourself.
+<ul>
+<li>Different software = different defaults <span class="citation">(Erp, Mulder, and Oberski <a href="#ref-vanErp2018">2018</a>)</span>.</li>
+</ul></li>
+</ul></li>
+<li>Prior data conflict.
+<ul>
+<li>Can be because the prior chosen does not represent the sample populations (e.g., the prior is based on the general population and your sample population is the “healthy ageing population”).</li>
+<li>Can be of interest and the outcome of a study (e.g., the ability of teachers to predict students performance).</li>
+<li>Only likely to happen when you uses strongly informative priors.</li>
+</ul></li>
+<li>Documenting priors.
+<ul>
+<li>You should explain which priors were chosen and why.</li>
+<li>This should be documented and proveided with any analyses.</li>
+</ul></li>
+</ul>
+</div>
+<div id="estimating-parameters" class="section level2">
+<h2><span class="header-section-number">3.2</span> Estimating parameters</h2>
+<ul>
+<li>Gibbs sampler.
+<ul>
+<li>Estimates the parameter assuming that the other parameters are known.
+<ul>
+<li>Using a random start value, a parameter can be estimated. This parameter estimate is then passed to the next iteration of computation to replace the random start value.</li>
+</ul></li>
+<li>Simplifies computation.</li>
+<li>Chains represent starting values.</li>
+<li>Using multiple chains reduces the likelihood of accepting <em>local convergence</em>.
+<ul>
+<li>A single chain may exhibit a stable mean and variance for a sufficent number of iterations to be accepted given a set of convergence criteria. However, that chain may, given enough time, change its mean. Two chains with different start values are less likely to display local convergence than one chain is, the probablity of three chains diplaying local convergence is smaller again, and so it goes on.</li>
+</ul></li>
+<li><em>Burn-in</em> phase to remove the influence of starting values.</li>
+<li>More chains and/or more iterations allow for greater precision of estimates.</li>
+<li>Want stable means and variances within trace plots.</li>
+<li>If the model is correctly specified, it will <em>eventually</em> identify the target distribution.</li>
+<li>Convergence.
+<ul>
+<li>Gibbs sampler must run for <em>t</em> iterations for the burn-in phase, where <em>t</em> is great enough to remove the influence of the start values.</li>
+<li>Convergence is when all chains reach the same target distribution (i.e., there would be no way to tell whcih chain the sample draw was from).</li>
+<li>To check that convergence is stable, it is normal to double the number of iterations to check that convergence remains.</li>
+<li>9/10 times increasing the number of iterations will solve convergence issues.</li>
+<li>Including trace plots with manuscripts will allow others to (visually) assess convergence.</li>
+<li>It is also important to inspect posterior distributions - Do they look like you expected them to? Do they make sense?</li>
+<li>Autocorrelation is when an iteration is dependent on the last. One way to deal with auto correlation is through <em>thinning</em> where you only retain the <em>n</em>th sample. However, this does not acutally change the estimate and some would argue that it is unnecessary if the trace plots exhibit stable means and variances.
+<ul>
+<li>Thinning doesn’t get rid of autocorrelation, it hides it. If using thinning, you require more iterations to recover precision.</li>
+</ul></li>
+</ul></li>
+<li>There are several ways to assess convergence <span class="citation">(Kaplan and Depaoli <a href="#ref-Kaplan2012">2012</a>)</span>:
+<ul>
+<li>Inspecting trace plots for stability and good mixing.</li>
+<li>Potential Scale Reduction Factor <span class="citation">(PSR; Gelman and Rubin <a href="#ref-Gelman1992">1992</a>)</span>. Different cut-off criteria, usually &gt;1.1 or &gt;1.05.
+<ul>
+<li>In Mplus, with a single chain, PSR is defined using the third and fourth quarters of the chain.</li>
+</ul></li>
+<li>Kolmogorov-Smirnov (K-S) tests: a test of equality of the posterior parameter distributions across the different chains using draws from the chains.</li>
+<li>Geweke z-statistic: compares the first and last half of the post burn-in iterations. Significant test is evidence of local convergence.</li>
+</ul></li>
+</ul></li>
+<li>Sensitivity to priors.
+<ul>
+<li>The effect of priors on the posterior distribution was described above. It is important to provided evidence of how robust the estimates are, or how <em>sensitive</em> they are to the prior specification.</li>
+<li><strong>This is not an attempt to find the “best” prior (e.g., the one that provides a posterior that supports your hypotheses).</strong> And that is why it is important to specify your priors <strong>before</strong> you conduct any analyses.</li>
+<li>Analyses should be re-run with both more and less informative priors. Differences in parameter estimates should be reported both relative to the original estimate and in absolute values. This may be a sentence or short paragrah in the results, supported with supplementary information.</li>
+</ul></li>
+<li>Depaoli and van de Schoot <span class="citation">(Depaoli and Schoot <a href="#ref-Depaoli2017">2017</a>)</span> provide a checklist to help researchers avoid the naïve use of Bayesian statistics.</li>
+</ul>
+</div>
+<div id="regression-exercise" class="section level2">
+<h2><span class="header-section-number">3.3</span> Regression exercise</h2>
+<p><a href="https://www.rensvandeschoot.com/tutorials/" class="uri">https://www.rensvandeschoot.com/tutorials/</a> &gt; WAMBS checklist &gt; exercise in programme of your choice.</p>
+</div>
+<div id="references" class="section level2">
+<h2><span class="header-section-number">3.4</span> References</h2>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-Depaoli2017">
+<p>Depaoli, Sarah, and Rens van de Schoot. 2017. “Improving transparency and replication in Bayesian statistics: The WAMBS-Checklist.” <em>Psychological Methods</em> 22 (2): 240–61. <a href="https://doi.org/10.1037/met0000065">https://doi.org/10.1037/met0000065</a>.</p>
+</div>
+<div id="ref-vanErp2018">
+<p>Erp, Sara van, Joris Mulder, and Daniel L. Oberski. 2018. “Prior sensitivity analysis in default bayesian structural equation modeling.” <em>Psychological Methods</em> 23 (2): 363–88. <a href="https://doi.org/10.1037/met0000162">https://doi.org/10.1037/met0000162</a>.</p>
+</div>
+<div id="ref-Gelman1992">
+<p>Gelman, Andrew, and Donald B. Rubin. 1992. “Inference from iterative simulation using multiple sequences.” <em>Statistical Science</em> 7 (4): 457–72. <a href="https://doi.org/10.1214/ss/1177011136">https://doi.org/10.1214/ss/1177011136</a>.</p>
+</div>
+<div id="ref-Kaplan2012">
+<p>Kaplan, D., and S. Depaoli. 2012. “Bayesian structural equation modelling.” In <em>Handbook of Structural Equation Modelling</em>, edited by R.H. Hoyle. New York: Guilford Press.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introduction-to-structural-equation-modelling.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="introduction-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["BSEM_intro.pdf", "BSEM_intro.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

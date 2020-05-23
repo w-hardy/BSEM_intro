@@ -1,4 +1,4 @@
-## Introduction to structural equation modelling
+# Introduction to structural equation modelling
 
 * What is structural equation modelling (SEM)?
   * SEM is a variety of methods that analyse covariance matrices^[Covariance is...].
@@ -12,7 +12,7 @@
   5. Respecify the model, which is assumed to be identified (return to step 4).
   6. Report the results.
 
-### Specification
+## Specification
 
 * Hypotheses are often expressed with graphical conceptual models. These provide a visual representation of theoretical variables of interest and expected relationships between them.
 * Outcome variables in SEM are referred to as *endogenous* variables.
@@ -24,14 +24,14 @@
   * Results from subsequent steps assume that the model/the hypotheses are basically correct.
 * Making a list of changes, that are justifiable according to theory or empirical results, at this stage can be useful for step five.
 
-### Identification
+## Identification
 
 * Graphical conceptual models are useful but need to be translated into statistical models that can be analysed.
 * Statistical models must respect certain rules/restrictions. One of these is identification.
 * A model is identified if it is *theoretically* possible for the computer to derive a unique estimate of every model parameter. This is a property of the model, not of the data.
   * A researcher may specify a model that is true to a particular theory, but is not identified. To analyse such a model in SEM requires it to be respecified, but this may result in a model that is akin to making an intentional specification error in relation to the theory.
 
-### Estimation
+## Estimation
 
 * A computer SEM too will be used to conduct the analysis (e.g., Mplus, lavaan in R, AMOS).
 
@@ -45,17 +45,17 @@
      * An equivalent or near equivalent model may explain the data just as well as the researcher's preferred model, but with a contradictory pattern of causal effects among some of the variables.
      * Researchers should explain whey their preferred model should not be rejected in favour of equivalent ones.
 
-### Data collection and preparation
+## Data collection and preparation
 
 
 
-### Respecification
+## Respecification
 
 * Researchers arrive at this step when initial model fit is poor.
 * The list of justifiable modifications created earlier will be useful at this stage.
 * Modifications should be guided by rational rather than statistical considerations.
 
-### Reporting results
+## Reporting results
 
 * Many papers do not report results properly.
 * There are guidelines available [@Boomsma2012; @Kline2016, p 464].
