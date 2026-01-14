@@ -1,0 +1,44 @@
+project:
+  type: book
+  output-dir: _book
+
+book:
+  title: "Introduction to Bayesian structural equation modelling"
+  author: "Will Hardy"
+  date: now
+  description: "These are a set of notes that are designed to help the reader gain an understanding of how to conduct Bayesian structural equation modelling."
+  chapters:
+    - index.qmd
+    - 01-intro_to_sem.qmd
+    - 02-intro_to_bayes.qmd
+    - 03-intro_to_bsem.qmd
+    - 04-bsem_in_AMOS.qmd
+    - 06-references.qmd
+    - 07-appendix-a.qmd
+
+bibliography:
+  - packages.bib
+
+format:
+  html:
+    theme: default
+    css: 
+      - style.css
+      - extra-styles.css
+    number-sections: true
+    toc: true
+    toc-location: left
+
+  # PDF and EPUB formats are commented out due to TeX Live package management issues
+  # Uncomment and fix preamble.tex dependencies once TeX environment is stable
+  # pdf:
+  #   papersize: a4
+  #   latex-engine: xelatex
+  #   cite-method: natbib
+  #   include-in-header: preamble.tex
+  #   include-after-body: after_body.tex
+  #   keep-tex: true
+  # epub: default
+
+execute:
+  freeze: auto

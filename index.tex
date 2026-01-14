@@ -1,0 +1,1087 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  a4paper,
+  DIV=11,
+  numbers=noendperiod]{scrreprt}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+\usepackage{booktabs}
+
+\usepackage{makeidx}
+\makeindex
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+\usepackage[]{natbib}
+\bibliographystyle{plainnat}
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Introduction to Bayesian structural equation modelling},
+  pdfauthor={Will Hardy},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Introduction to Bayesian structural equation modelling}
+\author{Will Hardy}
+\date{2026-01-14}
+
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Table of contents}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+
+\bookmarksetup{startatroot}
+
+\chapter{Introduction to Bayesian structrual equation
+modelling}\label{introduction-to-bayesian-structrual-equation-modelling}
+
+\bookmarksetup{startatroot}
+
+\chapter{Introduction}\label{introduction}
+
+This set of workshops is designed to help the student understand and
+begin to use Bayesian structural equation modelling. To do so, there are
+introductory workshops on the following topics:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Structural equation modelling.
+\item
+  Bayesian statistics.
+\item
+  Bayesian structural equation modelling.
+\item
+  Running BSEM in AMOS.
+\end{enumerate}
+
+\section{Prerequsites}\label{prerequsites}
+
+\begin{itemize}
+\tightlist
+\item
+  To maximise learning from these workshops it would be useful to have a
+  good understanding of regression analyses.
+\item
+  Access to a copy of AMOS capable of running Bayesian analysis.
+\end{itemize}
+
+\bookmarksetup{startatroot}
+
+\chapter{Structural equation
+modelling}\label{structural-equation-modelling}
+
+\section{What is structural equation
+modelling?}\label{what-is-structural-equation-modelling}
+
+\begin{itemize}
+\item
+  Structural equation modelling (SEM) encompases a variety of methods
+  that analyse covariance\footnote{The covariance for two observed
+    variables \(X\) and \(Y\) is defined as:
+    \(cov_{XY} = r_{XY}SD_{X}SD_{Y}\)} structures \citep{Kline2016}.
+\item
+  Pearl \citeyearpar{Pearl2012} defined SEM as a causal inference method
+  that takes three inputs and generates three outputs.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Inputs:
+
+    \begin{enumerate}
+    \def\labelenumi{(\alph{enumi})}
+    \tightlist
+    \item
+      Qualitative causal hypotheses.
+    \item
+      A set of queries about the causal relations between variables of
+      interest.
+    \item
+      Data.
+    \end{enumerate}
+  \item
+    Outputs:
+
+    \begin{enumerate}
+    \def\labelenumi{(\alph{enumi})}
+    \tightlist
+    \item
+      Numeric estimates of model parameters for hypothesised effects.
+    \item
+      A set of logical implications that may not directly corespond to a
+      specific parameter but can stil be tested in the data.
+    \item
+      The degree to which the testable implications of the model are
+      supported by the data.
+    \end{enumerate}
+  \end{itemize}
+\item
+  Theory should underpin any SEM as its purpose is to test theory by
+  specifying a model that represents it, measured using observed
+  variables \citep{Hayduk2007}.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    ``\,`Success' in SEM is determined by wheter the analysis deals with
+    substantive theoretical issues regardless of whether or not a model
+    it retained'' \citep[ pp 9-10]{Kline2016}.
+  \end{itemize}
+\item
+  SEM can be used in both a confirmatory and exploratory fashions
+  \citep{Joreskog1993}.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Strictly confirmatory approaches will test a single model that is
+    either retained or rejected.
+  \item
+    Exploratory approaches may test several models that are specified a
+    priori, or it may be that the initial model was rejected and the
+    researcher is aiming to generate a new model through modificartion
+    of the original. The goal of this would be to find a model that:
+    makes theoretical sense, is reasonably parsimonious, and is close
+    enough to the data.
+  \end{itemize}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Variables in SEM}\label{variables-in-sem}
+
+\begin{itemize}
+\tightlist
+\item
+  Independent variables in SEM are described as \emph{exogenous}, that
+  is, they come from outside of the model, thus their causes are not
+  represented in the model.
+\item
+  Dependent variables are described as \emph{endogenous} and they have
+  at least one cause that is represented in the model, which can be an
+  exogenous variable, or another endogenous variable.
+\item
+  Both exogenous and endogenous variables will be classed either as
+  \emph{observed} or \emph{latent} variables.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Observed variables are those that can be measured directly.
+  \item
+    Latent variables are those which cannot be measured directly.
+  \end{itemize}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Six steps of SEM}\label{six-steps-of-sem}
+
+\begin{itemize}
+\tightlist
+\item
+  There are six basic steps for most SEM analyses; however, the process
+  may be non-linear as the results of one step may require you to return
+  to an earlier step:
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Model specification.
+  \item
+    Evaluation of model identification (if not identified then return to
+    step 1).
+  \item
+    Select the measures (operationalise the constructs) and collect,
+    prepare, and screen the data.
+  \item
+    Estimate the model.
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Evaluate model fit; if it is poor then respecify the model if
+      doing so is justifiable (skip to step 5); otherwise retain no
+      model (skip to step 6).
+    \end{itemize}
+  \item
+    Respecify the model, which is assumed to be identified (return to
+    step 4).
+  \item
+    Report the results.
+  \end{enumerate}
+\end{itemize}
+
+\section{Specification}\label{specification}
+
+\begin{itemize}
+\tightlist
+\item
+  Hypotheses are often expressed with graphical conceptual models. These
+  provide a visual representation of theoretical variables of interest
+  and expected relationships between them.
+\item
+  Outcome variables in SEM are referred to as \emph{endogenous}
+  variables.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    All must have at least one cause in the model.
+  \item
+    Some of these causes are independent variables.
+  \end{itemize}
+\item
+  Independent variables in SEM are known as \emph{exogenous} variables.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The causes of these are not represented in the model.
+  \end{itemize}
+\item
+  Specification is the most important step.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Results from subsequent steps assume that the model/the hypotheses
+    are basically correct.
+  \end{itemize}
+\item
+  Making a list of changes, that are justifiable according to theory or
+  empirical results, at this stage can be useful for step five.
+\end{itemize}
+
+\section{Identification}\label{identification}
+
+\begin{itemize}
+\tightlist
+\item
+  Graphical conceptual models are useful but need to be translated into
+  statistical models that can be analysed.
+\item
+  Statistical models must respect certain rules/restrictions. One of
+  these is identification.
+\item
+  A model is identified if it is \emph{theoretically} possible for the
+  computer to derive a unique estimate of every model parameter. This is
+  a property of the model, not of the data.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    A researcher may specify a model that is true to a particular
+    theory, but is not identified. To analyse such a model in SEM
+    requires it to be respecified, but this may result in a model that
+    is akin to making an intentional specification error in relation to
+    the theory.
+  \end{itemize}
+\end{itemize}
+
+\section{Estimation}\label{estimation}
+
+\begin{itemize}
+\item
+  A computer SEM too will be used to conduct the analysis (e.g., Mplus,
+  lavaan in R, AMOS).
+\item
+  Evaluate model fit.
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    How well does the model fit the data?
+
+    \begin{itemize}
+    \tightlist
+    \item
+      When a model is a poor fit to the data, consider if
+      respecification of the model can be justified given relevant
+      theory and results of prior empirical studies.
+    \end{itemize}
+  \item
+    If/when a well fitting model is four, then interpret the parameter
+    estimates.
+  \item
+    Consider equivalent or near equivalent models.
+
+    \begin{itemize}
+    \tightlist
+    \item
+      An equivalent or near equivalent model may explain the data just
+      as well as the researcher's preferred model, but with a
+      contradictory pattern of causal effects among some of the
+      variables.
+    \item
+      Researchers should explain whey their preferred model should not
+      be rejected in favour of equivalent ones.
+    \end{itemize}
+  \end{enumerate}
+\end{itemize}
+
+\section{Data collection and
+preparation}\label{data-collection-and-preparation}
+
+\begin{itemize}
+\tightlist
+\item
+  Data can either be in raw form, or a matrix of sumary statistics.
+\end{itemize}
+
+\section{Respecification}\label{respecification}
+
+\begin{itemize}
+\tightlist
+\item
+  Researchers arrive at this step when initial model fit is poor.
+\item
+  The list of justifiable modifications created earlier will be useful
+  at this stage.
+\item
+  Modifications should be guided by rational rather than statistical
+  considerations.
+\end{itemize}
+
+\section{Reporting results}\label{reporting-results}
+
+\begin{itemize}
+\tightlist
+\item
+  Many papers do not report results properly.
+\item
+  There are guidelines available for reporting SEM results \citep[p 464,
+  \citet{Appelbaum2018}, pp 16-19]{Boomsma2012, Kline2016}.
+\end{itemize}
+
+\bookmarksetup{startatroot}
+
+\chapter{Introduction to Bayesian
+statistics}\label{introduction-to-bayesian-statistics}
+
+\begin{itemize}
+\tightlist
+\item
+  What is it?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Bayesian statistics assumes that all parameters (e.g., corelation
+    coefficients) have a distribution.
+  \item
+    Frequentist statistics (a.k.a. classical or ``normal'' statistics)
+    assumes that there is one try population parameter (e.g., there is
+    one true coreelation coefficient).
+  \item
+    Posterior = (prior * likelihood) / (probability distribution).
+  \item
+    The probability distribution is only important with multiple
+    hypotheses or datasets, so in many instances the formula can be
+    simplified to: posterior = prior * likelihood or even more simply,
+    posterior = what do we know before hand * what does the data say.
+  \end{itemize}
+\item
+  Why would I use it?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Why not? Just becasue it is not ``normal'' is not a reaosn to use it
+    as long as you effectivley communicate your results.
+  \item
+    Bayesian statistics allows you to:
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Incoporate (un)certainty in your model.
+    \item
+      Update your knowledge.
+    \end{itemize}
+  \item
+    Some of the statistics are easier to interpret.
+
+    \begin{itemize}
+    \tightlist
+    \item
+      There are no p-values.
+    \item
+      Credibility intervals (Bayesian) vs confidence intervals
+      (Frequentist).
+
+      \begin{itemize}
+      \tightlist
+      \item
+        A 95\% confidence interval: in the long run, 95\% of the
+        confidence intervals will contain the true population value.
+      \item
+        A 95\% credibility interval: there is 95\% probability that the
+        population value lies within the upper and lower bounds.
+      \end{itemize}
+    \end{itemize}
+  \item
+    Technical reasons (e.g., identifying complex models, improving
+    convergence, more accurate parameter estimaes, non-normal data,
+    missing data handling).
+  \item
+    Small samples.
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Bayes is not based on central limit theorem.
+    \item
+      It is also not a magical solution to small sample problems.
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+\section{Priors}\label{priors}
+
+\begin{itemize}
+\tightlist
+\item
+  Specific to populations - different populaitons will need different
+  priors.
+\item
+  Information about the parameter.
+\item
+  Usually made up of three components:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Shape (e.g., normal).
+  \item
+    Location (e.g., mean).
+  \item
+    Certainty (e.g., standard deviation).
+  \end{itemize}
+\item
+  Take the scale of the data, so if you want to use standardised effects
+  then you must use standardised data.
+\item
+  There are lots of different names for types of priors, however they
+  can be split into three main types:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Uninformative/flat prior.
+  \item
+    Weakly informative.
+  \item
+    Strongly informative.
+  \end{itemize}
+\item
+  Effects on the posterior:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Priors need be specified before looking at the data as they will
+    influence the results of any analyses.
+  \item
+    Strongly informative priors will result in a \emph{prior driven
+    posterior} where the results will be closer to the prior than the
+    likelihood.
+  \item
+    Weakly informative priors will result in a \emph{data driven
+    posterior} where the reuslts will be close to the likelihood than
+    the prior.
+  \item
+    Sample size is also important, the larger the sample, the larger the
+    influce of the likelihood on the posterior.
+  \item
+    https://www.rensvandeschoot.com/fbi-the-app/
+  \end{itemize}
+\item
+  Where do priors come from?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Prior research (e.g., meta analyses, individual studies, pilot
+    studies).
+  \item
+    Expert elicitation.
+  \item
+    Software defaults if you don't specify them yourself.
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Different software = different defaults \citep{vanErp2018}.
+    \end{itemize}
+  \end{itemize}
+\item
+  Prior data conflict.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Can be because the prior chosen does not represent the sample
+    populations (e.g., the prior is based on the general population and
+    your sample population is the ``healthy ageing population'').
+  \item
+    Can be of interest and the outcome of a study (e.g., the ability of
+    teachers to predict students performance).
+  \item
+    Only likely to happen when you uses strongly informative priors.
+  \end{itemize}
+\item
+  Documenting priors.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    You should explain which priors were chosen and why.
+  \item
+    This should be documented and proveided with any analyses.
+  \end{itemize}
+\end{itemize}
+
+\section{Estimating parameters}\label{estimating-parameters}
+
+\begin{itemize}
+\tightlist
+\item
+  Gibbs sampler.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Estimates the parameter assuming that the other parameters are
+    known.
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Using a random start value, a parameter can be estimated. This
+      parameter estimate is then passed to the next iteration of
+      computation to replace the random start value.
+    \end{itemize}
+  \item
+    Simplifies computation.
+  \item
+    Chains represent starting values.
+  \item
+    Using multiple chains reduces the likelihood of accepting
+    \emph{local convergence}.
+
+    \begin{itemize}
+    \tightlist
+    \item
+      A single chain may exhibit a stable mean and variance for a
+      sufficent number of iterations to be accepted given a set of
+      convergence criteria. However, that chain may, given enough time,
+      change its mean. Two chains with different start values are less
+      likely to display local convergence than one chain is, the
+      probablity of three chains diplaying local convergence is smaller
+      again, and so it goes on.
+    \end{itemize}
+  \item
+    \emph{Burn-in} phase to remove the influence of starting values.
+  \item
+    More chains and/or more iterations allow for greater precision of
+    estimates.
+  \item
+    Want stable means and variances within trace plots.
+  \item
+    If the model is correctly specified, it will \emph{eventually}
+    identify the target distribution.
+  \item
+    Convergence.
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Gibbs sampler must run for \emph{t} iterations for the burn-in
+      phase, where \emph{t} is great enough to remove the influence of
+      the start values.
+    \item
+      Convergence is when all chains reach the same target distribution
+      (i.e., there would be no way to tell whcih chain the sample draw
+      was from).
+    \item
+      To check that convergence is stable, it is normal to double the
+      number of iterations to check that convergence remains.
+    \item
+      9/10 times increasing the number of iterations will solve
+      convergence issues.
+    \item
+      Including trace plots with manuscripts will allow others to
+      (visually) assess convergence.
+    \item
+      It is also important to inspect posterior distributions - Do they
+      look like you expected them to? Do they make sense?
+    \item
+      Autocorrelation is when an iteration is dependent on the last. One
+      way to deal with auto correlation is through \emph{thinning} where
+      you only retain the \emph{n}th sample. However, this does not
+      acutally change the estimate and some would argue that it is
+      unnecessary if the trace plots exhibit stable means and variances.
+
+      \begin{itemize}
+      \tightlist
+      \item
+        Thinning doesn't get rid of autocorrelation, it hides it. If
+        using thinning, you require more iterations to recover
+        precision.
+      \end{itemize}
+    \end{itemize}
+  \item
+    There are several ways to assess convergence \citep{Kaplan2012}:
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Inspecting trace plots for stability and good mixing.
+    \item
+      Potential Scale Reduction Factor {[}PSR; \citet{Gelman1992}{]}.
+      Different cut-off criteria, usually \textgreater1.1 or
+      \textgreater1.05.
+
+      \begin{itemize}
+      \tightlist
+      \item
+        In Mplus, with a single chain, PSR is defined using the third
+        and fourth quarters of the chain.
+      \end{itemize}
+    \item
+      Kolmogorov-Smirnov (K-S) tests: a test of equality of the
+      posterior parameter distributions across the different chains
+      using draws from the chains.
+    \item
+      Geweke z-statistic: compares the first and last half of the post
+      burn-in iterations. Significant test is evidence of local
+      convergence.
+    \end{itemize}
+  \end{itemize}
+\item
+  Sensitivity to priors.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The effect of priors on the posterior distribution was described
+    above. It is important to provided evidence of how robust the
+    estimates are, or how \emph{sensitive} they are to the prior
+    specification.
+  \item
+    \textbf{This is not an attempt to find the ``best'' prior (e.g., the
+    one that provides a posterior that supports your hypotheses).} And
+    that is why it is important to specify your priors \textbf{before}
+    you conduct any analyses.
+  \item
+    Analyses should be re-run with both more and less informative
+    priors. Differences in parameter estimates should be reported both
+    relative to the original estimate and in absolute values. This may
+    be a sentence or short paragrah in the results, supported with
+    supplementary information.
+  \end{itemize}
+\item
+  Depaoli and van de Schoot \citep{Depaoli2017} provide a checklist to
+  help researchers avoid the naïve use of Bayesian statistics.
+\end{itemize}
+
+\section{Reporting}\label{reporting}
+
+\begin{itemize}
+\tightlist
+\item
+  Guidelines from the WAMBS checklist and also by Appelbaum et al.
+  \citeyearpar[pp 17-20]{Appelbaum2018}.
+\end{itemize}
+
+\section{Regression exercise}\label{regression-exercise}
+
+https://www.rensvandeschoot.com/tutorials/ \textgreater{} WAMBS
+checklist \textgreater{} exercise in programme of your choice.
+
+\bookmarksetup{startatroot}
+
+\chapter{Introduction to BSEM}\label{introduction-to-bsem}
+
+\begin{itemize}
+\tightlist
+\item
+  What is Bayesian structural equation modelling (BSEM)? In their paper
+  introducing BSEM, Muthén and Asparouhov \citeyearpar[p
+  316]{Muthen2012} stated that:
+\end{itemize}
+
+\begin{quote}
+It is intended to produce an analysis that better reflects the
+researcher's theories and prior beliefs. It does so by systematically
+using informative priors for parameters that should not be freely
+estimated according to the researcher's theories and prior beliefs. In a
+frequentist analysis, such parameters are typically fixed at zero or are
+constrained to be equal to other parameters. In key applications,
+freeing these parameters would, in fact, produce a nonidentified model.
+The Bayesian analysis, however, identifies the model by substantively
+driven small-variance priors. It should be recognized that BSEM refers
+to the specific Bayesian approach proposed here of using informative,
+small-variance priors to reflect the researcher's theories and prior
+beliefs. Typically, this would be combined with the use of
+noninformative priors for parameters that would not be restricted in a
+corresponding ML analysis. For example, major loadings would have a
+normal prior with a very large variance. The BSEM approach of using
+informative priors is applicable to any constrained parameter in an SEM.
+\end{quote}
+
+\section{What does that mean?}\label{what-does-that-mean}
+
+\begin{itemize}
+\tightlist
+\item
+  Typical maximum-likelihood (ML) approaches to confirmatory factor
+  analysis (CFA) only allow indicators to load on their intended factors
+  and fix cross-loadings (i.e., loadings onto non-intended factors) and
+  the correlation between residual-error terms to zero. This approach is
+  said to be overly restrictive and often leads to rejection of models
+  based on the Chi-square test of good fit \citep{Marsh2009}.
+\item
+  Researchers therefore tend to rely on other fit-indices to justify
+  accepting a model when the Chi-square test suggests that they should
+  not, as they suggest it is overly sensitive to trivial misfit
+  \citep{Fong2013}. However, these indicies will also often reject the
+  model, especially when there are a large number of indicators
+  \citep{Marsh2004}. This can lead to researchers relaxing conventional
+  criteria for model fit and/or modifying their model post-hoc to
+  improve the fit, which can lead to the acceptance of a poor model or
+  one with a fit that has been improved by chance based on iterative
+  model respesifcaiton using modification indices \citep{MacCallum1992}.
+\item
+  Whilst cross-loadings and correlated errors terms can be specified in
+  ML-CFA, specifiying too many will often lead to an underidentified
+  model \citep{Asparouhov2009}.
+\item
+  Exploratory structural equation modelling is one alternative to
+  tradition CFA approaches that less restrictive (i.e., it allows for
+  cross-loadings), however it still does not allow for correlated
+  residual error terms, nor does is it possible to specify how close to
+  zero the cross-loadings shoudl be \citep{Muthen2012}.
+\item
+  BSEM allows the specification of both cross-loadings and residual
+  correlations that are \emph{approximately zero} this is done by using
+  small-variance (i.e., strongly informative) priors on these
+  parameters. What approximatley zero means is defined by the user and
+  may be informed by theory, however if these are large variance priors
+  the model may be underidentified \citep{Muthen2012}.
+\item
+  The user may or may not specify priors for the intended factor
+  loadings, if they are not specified, the software default will be
+  used.
+\item
+  It is important to consider priors before analysing the data,
+  especially in small samples, as there is growing evidence that the
+  ``naïve'' use of priors can lead to biased estimates, sometimes worse
+  than would be obtained through ML estimation \citep{Smid2020}.
+\end{itemize}
+
+\section{Model fit}\label{model-fit}
+
+Model fit can in BSEMs can be assessed in using a number of metrics:
+
+\begin{itemize}
+\tightlist
+\item
+  Number of free parameters
+\item
+  Posterior Predictive p-value (PPp value)
+\item
+  95\% Confidence Interval for the Difference Between the Observed and
+  the Replicated Chi-Square Values
+\item
+  Deviance Information Criterion (DIC)
+\end{itemize}
+
+\section{Reporting results from BSEM}\label{reporting-results-from-bsem}
+
+The previous sessions have mentioned specific things that should be
+reported in SEM analyses and also in Bayesian analyses. It it important
+that the information reported from BSEM respects both of those lists.
+
+\bookmarksetup{startatroot}
+
+\chapter{Running BSEM analyses in
+AMOS}\label{running-bsem-analyses-in-amos}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Missing data
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \tightlist
+  \item
+    Missing data can be dealt with prior to BSEM analysis in a variety
+    of ways ranging from the simple (e.g., listwise deletion, mean
+    imputation) to far more complicated mothods (e.g., multiple
+    imputation).
+  \item
+    It is beyond the scope of this course to cover the various
+    techniques and when to use them.
+  \item
+    By default, AMOS will do XX when there is missing data.
+  \end{enumerate}
+\item
+  Standardise variables
+\item
+  Model specification
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \tightlist
+  \item
+    Major loadings only
+  \item
+    Major loadings + minor cross-loadings
+  \item
+    Major loadings + minor cross-loadings + approximate zero covariance
+  \end{enumerate}
+\item
+  Additional output
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \tightlist
+  \item
+    Indirect moments
+  \end{enumerate}
+\item
+  Run
+\item
+  Prior specification
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \tightlist
+  \item
+    Default for all variables in AMOS is an uninformative prior
+    (uniform; - 1\^{}38 to +1\^{}38).
+  \end{enumerate}
+\item
+  Convergence:
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \tightlist
+  \item
+    As far as I can tell, AMOS only uses a single MCMC chain.
+  \item
+    PSR
+  \item
+    SC for individual parameters
+  \item
+    Trace plots for each parameter
+  \item
+    Posterior
+
+    \begin{enumerate}
+    \def\labelenumiii{\arabic{enumiii}.}
+    \tightlist
+    \item
+      First and last box creates polygons for the first and last third
+      of the samples
+    \end{enumerate}
+  \end{enumerate}
+\item
+  Fit:
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \tightlist
+  \item
+    PPp
+  \item
+    Chi-square
+  \item
+    DIC
+  \end{enumerate}
+\item
+  Parameter estimates
+\item
+  Sensitivity analyses
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \tightlist
+  \item
+    More informative priors
+  \item
+    Less informative priors
+  \end{enumerate}
+\end{enumerate}
+
+\bookmarksetup{startatroot}
+
+\chapter*{References}\label{references}
+\addcontentsline{toc}{chapter}{References}
+
+\markboth{References}{References}
+
+\bookmarksetup{startatroot}
+
+
+\renewcommand\bibname{Appendix A}
+  \bibliography{packages.bib}
+
+
+\printindex
+
+
+\end{document}

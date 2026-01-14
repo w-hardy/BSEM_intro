@@ -1,0 +1,34 @@
+--- 
+title: "Introduction to Bayesian structrual equation modelling"
+author: "Will Hardy"
+date: "`r Sys.Date()`"
+description: "These are a set of notes that are designed to help the reader gain an understanding of how to conduct Bayesian structural equation modelling."
+---
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(
+  c(
+    .packages(),
+    'bookdown',
+    'knitr',
+    'rmarkdown'
+  ),
+  'packages.bib'
+)
+```
+
+# Introduction
+
+This set of workshops is designed to help the student understand and begin to use Bayesian structural equation modelling. To do so, there are introductory workshops on the following topics:
+
+1. Structural equation modelling.
+2. Bayesian statistics.
+3. Bayesian structural equation modelling.
+4. Running BSEM in AMOS.
+
+
+## Prerequsites
+
+* To maximise learning from these workshops it would be useful to have a good understanding of regression analyses.
+* Access to a copy of AMOS capable of running Bayesian analysis.

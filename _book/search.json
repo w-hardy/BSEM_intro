@@ -1,0 +1,232 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction to Bayesian structural equation modelling",
+    "section": "",
+    "text": "1 Introduction\nThis set of workshops is designed to help the student understand and begin to use Bayesian structural equation modelling. To do so, there are introductory workshops on the following topics:",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Bayesian structrual equation modelling</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#prerequsites",
+    "href": "index.html#prerequsites",
+    "title": "Introduction to Bayesian structural equation modelling",
+    "section": "1.1 Prerequsites",
+    "text": "1.1 Prerequsites\n\nTo maximise learning from these workshops it would be useful to have a good understanding of regression analyses.\nAccess to a copy of AMOS capable of running Bayesian analysis.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Bayesian structrual equation modelling</span>"
+    ]
+  },
+  {
+    "objectID": "01-intro_to_sem.html",
+    "href": "01-intro_to_sem.html",
+    "title": "2  Structural equation modelling",
+    "section": "",
+    "text": "2.1 What is structural equation modelling?",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Structural equation modelling</span>"
+    ]
+  },
+  {
+    "objectID": "01-intro_to_sem.html#what-is-structural-equation-modelling",
+    "href": "01-intro_to_sem.html#what-is-structural-equation-modelling",
+    "title": "2  Structural equation modelling",
+    "section": "",
+    "text": "Structural equation modelling (SEM) encompases a variety of methods that analyse covariance1 structures (Kline2016?).\nPearl (Pearl2012?) defined SEM as a causal inference method that takes three inputs and generates three outputs.\n\nInputs:\n\nQualitative causal hypotheses.\nA set of queries about the causal relations between variables of interest.\nData.\n\nOutputs:\n\nNumeric estimates of model parameters for hypothesised effects.\nA set of logical implications that may not directly corespond to a specific parameter but can stil be tested in the data.\nThe degree to which the testable implications of the model are supported by the data.\n\n\nTheory should underpin any SEM as its purpose is to test theory by specifying a model that represents it, measured using observed variables (Hayduk2007?).\n\n“‘Success’ in SEM is determined by wheter the analysis deals with substantive theoretical issues regardless of whether or not a model it retained” (Kline2016? pp 9-10).\n\nSEM can be used in both a confirmatory and exploratory fashions (Joreskog1993?).\n\nStrictly confirmatory approaches will test a single model that is either retained or rejected.\nExploratory approaches may test several models that are specified a priori, or it may be that the initial model was rejected and the researcher is aiming to generate a new model through modificartion of the original. The goal of this would be to find a model that: makes theoretical sense, is reasonably parsimonious, and is close enough to the data.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Structural equation modelling</span>"
+    ]
+  },
+  {
+    "objectID": "01-intro_to_sem.html#variables-in-sem",
+    "href": "01-intro_to_sem.html#variables-in-sem",
+    "title": "2  Structural equation modelling",
+    "section": "2.2 Variables in SEM",
+    "text": "2.2 Variables in SEM\n\nIndependent variables in SEM are described as exogenous, that is, they come from outside of the model, thus their causes are not represented in the model.\nDependent variables are described as endogenous and they have at least one cause that is represented in the model, which can be an exogenous variable, or another endogenous variable.\nBoth exogenous and endogenous variables will be classed either as observed or latent variables.\n\nObserved variables are those that can be measured directly.\nLatent variables are those which cannot be measured directly.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Structural equation modelling</span>"
+    ]
+  },
+  {
+    "objectID": "01-intro_to_sem.html#six-steps-of-sem",
+    "href": "01-intro_to_sem.html#six-steps-of-sem",
+    "title": "2  Structural equation modelling",
+    "section": "2.3 Six steps of SEM",
+    "text": "2.3 Six steps of SEM\n\nThere are six basic steps for most SEM analyses; however, the process may be non-linear as the results of one step may require you to return to an earlier step:\n\nModel specification.\nEvaluation of model identification (if not identified then return to step 1).\nSelect the measures (operationalise the constructs) and collect, prepare, and screen the data.\nEstimate the model.\n\nEvaluate model fit; if it is poor then respecify the model if doing so is justifiable (skip to step 5); otherwise retain no model (skip to step 6).\n\nRespecify the model, which is assumed to be identified (return to step 4).\nReport the results.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Structural equation modelling</span>"
+    ]
+  },
+  {
+    "objectID": "01-intro_to_sem.html#specification",
+    "href": "01-intro_to_sem.html#specification",
+    "title": "2  Structural equation modelling",
+    "section": "2.4 Specification",
+    "text": "2.4 Specification\n\nHypotheses are often expressed with graphical conceptual models. These provide a visual representation of theoretical variables of interest and expected relationships between them.\nOutcome variables in SEM are referred to as endogenous variables.\n\nAll must have at least one cause in the model.\nSome of these causes are independent variables.\n\nIndependent variables in SEM are known as exogenous variables.\n\nThe causes of these are not represented in the model.\n\nSpecification is the most important step.\n\nResults from subsequent steps assume that the model/the hypotheses are basically correct.\n\nMaking a list of changes, that are justifiable according to theory or empirical results, at this stage can be useful for step five.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Structural equation modelling</span>"
+    ]
+  },
+  {
+    "objectID": "01-intro_to_sem.html#identification",
+    "href": "01-intro_to_sem.html#identification",
+    "title": "2  Structural equation modelling",
+    "section": "2.5 Identification",
+    "text": "2.5 Identification\n\nGraphical conceptual models are useful but need to be translated into statistical models that can be analysed.\nStatistical models must respect certain rules/restrictions. One of these is identification.\nA model is identified if it is theoretically possible for the computer to derive a unique estimate of every model parameter. This is a property of the model, not of the data.\n\nA researcher may specify a model that is true to a particular theory, but is not identified. To analyse such a model in SEM requires it to be respecified, but this may result in a model that is akin to making an intentional specification error in relation to the theory.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Structural equation modelling</span>"
+    ]
+  },
+  {
+    "objectID": "01-intro_to_sem.html#estimation",
+    "href": "01-intro_to_sem.html#estimation",
+    "title": "2  Structural equation modelling",
+    "section": "2.6 Estimation",
+    "text": "2.6 Estimation\n\nA computer SEM too will be used to conduct the analysis (e.g., Mplus, lavaan in R, AMOS).\nEvaluate model fit.\n\nHow well does the model fit the data?\n\nWhen a model is a poor fit to the data, consider if respecification of the model can be justified given relevant theory and results of prior empirical studies.\n\nIf/when a well fitting model is four, then interpret the parameter estimates.\nConsider equivalent or near equivalent models.\n\nAn equivalent or near equivalent model may explain the data just as well as the researcher’s preferred model, but with a contradictory pattern of causal effects among some of the variables.\nResearchers should explain whey their preferred model should not be rejected in favour of equivalent ones.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Structural equation modelling</span>"
+    ]
+  },
+  {
+    "objectID": "01-intro_to_sem.html#data-collection-and-preparation",
+    "href": "01-intro_to_sem.html#data-collection-and-preparation",
+    "title": "2  Structural equation modelling",
+    "section": "2.7 Data collection and preparation",
+    "text": "2.7 Data collection and preparation\n\nData can either be in raw form, or a matrix of sumary statistics.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Structural equation modelling</span>"
+    ]
+  },
+  {
+    "objectID": "01-intro_to_sem.html#respecification",
+    "href": "01-intro_to_sem.html#respecification",
+    "title": "2  Structural equation modelling",
+    "section": "2.8 Respecification",
+    "text": "2.8 Respecification\n\nResearchers arrive at this step when initial model fit is poor.\nThe list of justifiable modifications created earlier will be useful at this stage.\nModifications should be guided by rational rather than statistical considerations.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Structural equation modelling</span>"
+    ]
+  },
+  {
+    "objectID": "01-intro_to_sem.html#reporting-results",
+    "href": "01-intro_to_sem.html#reporting-results",
+    "title": "2  Structural equation modelling",
+    "section": "2.9 Reporting results",
+    "text": "2.9 Reporting results\n\nMany papers do not report results properly.\nThere are guidelines available for reporting SEM results (Appelbaum2018?).",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Structural equation modelling</span>"
+    ]
+  },
+  {
+    "objectID": "01-intro_to_sem.html#footnotes",
+    "href": "01-intro_to_sem.html#footnotes",
+    "title": "2  Structural equation modelling",
+    "section": "",
+    "text": "The covariance for two observed variables \\(X\\) and \\(Y\\) is defined as: \\(cov_{XY} = r_{XY}SD_{X}SD_{Y}\\)↩︎",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Structural equation modelling</span>"
+    ]
+  },
+  {
+    "objectID": "02-intro_to_bayes.html",
+    "href": "02-intro_to_bayes.html",
+    "title": "3  Introduction to Bayesian statistics",
+    "section": "",
+    "text": "3.1 Priors",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to Bayesian statistics</span>"
+    ]
+  },
+  {
+    "objectID": "02-intro_to_bayes.html#priors",
+    "href": "02-intro_to_bayes.html#priors",
+    "title": "3  Introduction to Bayesian statistics",
+    "section": "",
+    "text": "Specific to populations - different populaitons will need different priors.\nInformation about the parameter.\nUsually made up of three components:\n\nShape (e.g., normal).\nLocation (e.g., mean).\nCertainty (e.g., standard deviation).\n\nTake the scale of the data, so if you want to use standardised effects then you must use standardised data.\nThere are lots of different names for types of priors, however they can be split into three main types:\n\nUninformative/flat prior.\nWeakly informative.\nStrongly informative.\n\nEffects on the posterior:\n\nPriors need be specified before looking at the data as they will influence the results of any analyses.\nStrongly informative priors will result in a prior driven posterior where the results will be closer to the prior than the likelihood.\nWeakly informative priors will result in a data driven posterior where the reuslts will be close to the likelihood than the prior.\nSample size is also important, the larger the sample, the larger the influce of the likelihood on the posterior.\nhttps://www.rensvandeschoot.com/fbi-the-app/\n\nWhere do priors come from?\n\nPrior research (e.g., meta analyses, individual studies, pilot studies).\nExpert elicitation.\nSoftware defaults if you don’t specify them yourself.\n\nDifferent software = different defaults (vanErp2018?).\n\n\nPrior data conflict.\n\nCan be because the prior chosen does not represent the sample populations (e.g., the prior is based on the general population and your sample population is the “healthy ageing population”).\nCan be of interest and the outcome of a study (e.g., the ability of teachers to predict students performance).\nOnly likely to happen when you uses strongly informative priors.\n\nDocumenting priors.\n\nYou should explain which priors were chosen and why.\nThis should be documented and proveided with any analyses.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to Bayesian statistics</span>"
+    ]
+  },
+  {
+    "objectID": "02-intro_to_bayes.html#estimating-parameters",
+    "href": "02-intro_to_bayes.html#estimating-parameters",
+    "title": "3  Introduction to Bayesian statistics",
+    "section": "3.2 Estimating parameters",
+    "text": "3.2 Estimating parameters\n\nGibbs sampler.\n\nEstimates the parameter assuming that the other parameters are known.\n\nUsing a random start value, a parameter can be estimated. This parameter estimate is then passed to the next iteration of computation to replace the random start value.\n\nSimplifies computation.\nChains represent starting values.\nUsing multiple chains reduces the likelihood of accepting local convergence.\n\nA single chain may exhibit a stable mean and variance for a sufficent number of iterations to be accepted given a set of convergence criteria. However, that chain may, given enough time, change its mean. Two chains with different start values are less likely to display local convergence than one chain is, the probablity of three chains diplaying local convergence is smaller again, and so it goes on.\n\nBurn-in phase to remove the influence of starting values.\nMore chains and/or more iterations allow for greater precision of estimates.\nWant stable means and variances within trace plots.\nIf the model is correctly specified, it will eventually identify the target distribution.\nConvergence.\n\nGibbs sampler must run for t iterations for the burn-in phase, where t is great enough to remove the influence of the start values.\nConvergence is when all chains reach the same target distribution (i.e., there would be no way to tell whcih chain the sample draw was from).\nTo check that convergence is stable, it is normal to double the number of iterations to check that convergence remains.\n9/10 times increasing the number of iterations will solve convergence issues.\nIncluding trace plots with manuscripts will allow others to (visually) assess convergence.\nIt is also important to inspect posterior distributions - Do they look like you expected them to? Do they make sense?\nAutocorrelation is when an iteration is dependent on the last. One way to deal with auto correlation is through thinning where you only retain the nth sample. However, this does not acutally change the estimate and some would argue that it is unnecessary if the trace plots exhibit stable means and variances.\n\nThinning doesn’t get rid of autocorrelation, it hides it. If using thinning, you require more iterations to recover precision.\n\n\nThere are several ways to assess convergence (Kaplan2012?):\n\nInspecting trace plots for stability and good mixing.\nPotential Scale Reduction Factor [PSR; (Gelman1992?)]. Different cut-off criteria, usually &gt;1.1 or &gt;1.05.\n\nIn Mplus, with a single chain, PSR is defined using the third and fourth quarters of the chain.\n\nKolmogorov-Smirnov (K-S) tests: a test of equality of the posterior parameter distributions across the different chains using draws from the chains.\nGeweke z-statistic: compares the first and last half of the post burn-in iterations. Significant test is evidence of local convergence.\n\n\nSensitivity to priors.\n\nThe effect of priors on the posterior distribution was described above. It is important to provided evidence of how robust the estimates are, or how sensitive they are to the prior specification.\nThis is not an attempt to find the “best” prior (e.g., the one that provides a posterior that supports your hypotheses). And that is why it is important to specify your priors before you conduct any analyses.\nAnalyses should be re-run with both more and less informative priors. Differences in parameter estimates should be reported both relative to the original estimate and in absolute values. This may be a sentence or short paragrah in the results, supported with supplementary information.\n\nDepaoli and van de Schoot (Depaoli2017?) provide a checklist to help researchers avoid the naïve use of Bayesian statistics.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to Bayesian statistics</span>"
+    ]
+  },
+  {
+    "objectID": "02-intro_to_bayes.html#reporting",
+    "href": "02-intro_to_bayes.html#reporting",
+    "title": "3  Introduction to Bayesian statistics",
+    "section": "3.3 Reporting",
+    "text": "3.3 Reporting\n\nGuidelines from the WAMBS checklist and also by Appelbaum et al. (Appelbaum2018?, pp 17-20).",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to Bayesian statistics</span>"
+    ]
+  },
+  {
+    "objectID": "02-intro_to_bayes.html#regression-exercise",
+    "href": "02-intro_to_bayes.html#regression-exercise",
+    "title": "3  Introduction to Bayesian statistics",
+    "section": "3.4 Regression exercise",
+    "text": "3.4 Regression exercise\nhttps://www.rensvandeschoot.com/tutorials/ &gt; WAMBS checklist &gt; exercise in programme of your choice.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to Bayesian statistics</span>"
+    ]
+  },
+  {
+    "objectID": "03-intro_to_bsem.html",
+    "href": "03-intro_to_bsem.html",
+    "title": "4  Introduction to BSEM",
+    "section": "",
+    "text": "4.1 What does that mean?",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introduction to BSEM</span>"
+    ]
+  },
+  {
+    "objectID": "03-intro_to_bsem.html#what-does-that-mean",
+    "href": "03-intro_to_bsem.html#what-does-that-mean",
+    "title": "4  Introduction to BSEM",
+    "section": "",
+    "text": "Typical maximum-likelihood (ML) approaches to confirmatory factor analysis (CFA) only allow indicators to load on their intended factors and fix cross-loadings (i.e., loadings onto non-intended factors) and the correlation between residual-error terms to zero. This approach is said to be overly restrictive and often leads to rejection of models based on the Chi-square test of good fit (Marsh2009?).\nResearchers therefore tend to rely on other fit-indices to justify accepting a model when the Chi-square test suggests that they should not, as they suggest it is overly sensitive to trivial misfit (Fong2013?). However, these indicies will also often reject the model, especially when there are a large number of indicators (Marsh2004?). This can lead to researchers relaxing conventional criteria for model fit and/or modifying their model post-hoc to improve the fit, which can lead to the acceptance of a poor model or one with a fit that has been improved by chance based on iterative model respesifcaiton using modification indices (MacCallum1992?).\nWhilst cross-loadings and correlated errors terms can be specified in ML-CFA, specifiying too many will often lead to an underidentified model (Asparouhov2009?).\nExploratory structural equation modelling is one alternative to tradition CFA approaches that less restrictive (i.e., it allows for cross-loadings), however it still does not allow for correlated residual error terms, nor does is it possible to specify how close to zero the cross-loadings shoudl be (Muthen2012?).\nBSEM allows the specification of both cross-loadings and residual correlations that are approximately zero this is done by using small-variance (i.e., strongly informative) priors on these parameters. What approximatley zero means is defined by the user and may be informed by theory, however if these are large variance priors the model may be underidentified (Muthen2012?).\nThe user may or may not specify priors for the intended factor loadings, if they are not specified, the software default will be used.\nIt is important to consider priors before analysing the data, especially in small samples, as there is growing evidence that the “naïve” use of priors can lead to biased estimates, sometimes worse than would be obtained through ML estimation (Smid2020?).",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introduction to BSEM</span>"
+    ]
+  },
+  {
+    "objectID": "03-intro_to_bsem.html#model-fit",
+    "href": "03-intro_to_bsem.html#model-fit",
+    "title": "4  Introduction to BSEM",
+    "section": "4.2 Model fit",
+    "text": "4.2 Model fit\nModel fit can in BSEMs can be assessed in using a number of metrics:\n\nNumber of free parameters\nPosterior Predictive p-value (PPp value)\n95% Confidence Interval for the Difference Between the Observed and the Replicated Chi-Square Values\nDeviance Information Criterion (DIC)",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introduction to BSEM</span>"
+    ]
+  },
+  {
+    "objectID": "03-intro_to_bsem.html#reporting-results-from-bsem",
+    "href": "03-intro_to_bsem.html#reporting-results-from-bsem",
+    "title": "4  Introduction to BSEM",
+    "section": "4.3 Reporting results from BSEM",
+    "text": "4.3 Reporting results from BSEM\nThe previous sessions have mentioned specific things that should be reported in SEM analyses and also in Bayesian analyses. It it important that the information reported from BSEM respects both of those lists.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introduction to BSEM</span>"
+    ]
+  },
+  {
+    "objectID": "04-bsem_in_AMOS.html",
+    "href": "04-bsem_in_AMOS.html",
+    "title": "5  Running BSEM analyses in AMOS",
+    "section": "",
+    "text": "Missing data\n\nMissing data can be dealt with prior to BSEM analysis in a variety of ways ranging from the simple (e.g., listwise deletion, mean imputation) to far more complicated mothods (e.g., multiple imputation).\nIt is beyond the scope of this course to cover the various techniques and when to use them.\nBy default, AMOS will do XX when there is missing data.\n\nStandardise variables\nModel specification\n\nMajor loadings only\nMajor loadings + minor cross-loadings\nMajor loadings + minor cross-loadings + approximate zero covariance\n\nAdditional output\n\nIndirect moments\n\nRun\nPrior specification\n\nDefault for all variables in AMOS is an uninformative prior (uniform; - 1^38 to +1^38).\n\nConvergence:\n\nAs far as I can tell, AMOS only uses a single MCMC chain.\nPSR\nSC for individual parameters\nTrace plots for each parameter\nPosterior\n\nFirst and last box creates polygons for the first and last third of the samples\n\n\nFit:\n\nPPp\nChi-square\nDIC\n\nParameter estimates\nSensitivity analyses\n\nMore informative priors\nLess informative priors",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Running BSEM analyses in AMOS</span>"
+    ]
+  }
+]

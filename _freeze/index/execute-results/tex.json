@@ -1,0 +1,21 @@
+{
+  "hash": "c826385de7e6d1ca755a9eb58fe97796",
+  "result": {
+    "engine": "knitr",
+    "markdown": "--- \ntitle: \"Introduction to Bayesian structrual equation modelling\"\nauthor: \"Will Hardy\"\ndate: \"2026-01-14\"\ndescription: \"These are a set of notes that are designed to help the reader gain an understanding of how to conduct Bayesian structural equation modelling.\"\n---\n\n\n\n\n\n\n\n\n\n\n# Introduction\n\nThis set of workshops is designed to help the student understand and begin to use Bayesian structural equation modelling. To do so, there are introductory workshops on the following topics:\n\n1. Structural equation modelling.\n2. Bayesian statistics.\n3. Bayesian structural equation modelling.\n4. Running BSEM in AMOS.\n\n\n## Prerequsites\n\n* To maximise learning from these workshops it would be useful to have a good understanding of regression analyses.\n* Access to a copy of AMOS capable of running Bayesian analysis.\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {
+      "knitr": [
+        "{\"type\":\"list\",\"attributes\":{},\"value\":[]}"
+      ]
+    },
+    "preserve": null,
+    "postProcess": false
+  }
+}

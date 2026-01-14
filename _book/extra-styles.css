@@ -1,0 +1,45 @@
+<style>
+  .col2 {
+    -webkit-columns: 2 200px; /* chrome, safari */
+    -moz-columns: 2 200px;    /* firefox */
+    columns: 2 200px;         /* number of columns and width in pixels*/
+  }
+  .col3 {
+    columns: 3 100px;
+    -webkit-columns: 3 100px;
+    -moz-columns: 3 100px;
+  }
+  .two-column-left{
+    float: left;
+    width: 50%;
+    text-align: left;
+  }
+  .two-column-right{
+    float: right;
+    width: 50%;
+    text-align: left;
+  }
+  .three-column-left{
+    float: left;
+    width: 33%;
+    text-align: left;
+  }
+  .three-column-center{
+    display: inline-block;
+    width: 33%;
+    text-align: center;
+  }
+  .three-column-right{
+    float: right;
+    width: 33%;
+    text-align: left;
+  }
+  .xx-small-font{
+    font-size: 50%;
+  }
+  .references{
+    font-size: 80%;
+    font-stretch: condensed;
+    overflow-y: scroll;
+  }
+</style>
