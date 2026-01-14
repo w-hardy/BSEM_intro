@@ -2,4 +2,4 @@ book_filename: "BSEM_intro"
 delete_merged_file: true
 language:
   ui:
-    chapter_name: "Chapter "
+    chapter_name: !expr function(i) if(i > 1) paste0("Workshop ", as.numeric(i) - 1, ":")

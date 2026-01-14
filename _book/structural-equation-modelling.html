@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Workshop 1: Structural equation modelling | Introduction to Bayesian structrual equation modelling</title>
+  <meta name="description" content="These are a set of notes that are designed to help the reader gain an understanding of how to conduct Bayesian structural equation modelling." />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Workshop 1: Structural equation modelling | Introduction to Bayesian structrual equation modelling" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="These are a set of notes that are designed to help the reader gain an understanding of how to conduct Bayesian structural equation modelling." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Workshop 1: Structural equation modelling | Introduction to Bayesian structrual equation modelling" />
+  
+  <meta name="twitter:description" content="These are a set of notes that are designed to help the reader gain an understanding of how to conduct Bayesian structural equation modelling." />
+  
+
+<meta name="author" content="Will Hardy" />
+
+
+<meta name="date" content="2026-01-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="introduction-to-bayesian-statistics.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">An introduction to Bayesian SEM</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#prerequsites"><i class="fa fa-check"></i><b>1.1</b> Prerequsites</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html"><i class="fa fa-check"></i><b>2</b> Structural equation modelling</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#what-is-structural-equation-modelling"><i class="fa fa-check"></i><b>2.1</b> What is structural equation modelling?</a></li>
+<li class="chapter" data-level="2.2" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#variables-in-sem"><i class="fa fa-check"></i><b>2.2</b> Variables in SEM</a></li>
+<li class="chapter" data-level="2.3" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#six-steps-of-sem"><i class="fa fa-check"></i><b>2.3</b> Six steps of SEM</a></li>
+<li class="chapter" data-level="2.4" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#specification"><i class="fa fa-check"></i><b>2.4</b> Specification</a></li>
+<li class="chapter" data-level="2.5" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#identification"><i class="fa fa-check"></i><b>2.5</b> Identification</a></li>
+<li class="chapter" data-level="2.6" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#estimation"><i class="fa fa-check"></i><b>2.6</b> Estimation</a></li>
+<li class="chapter" data-level="2.7" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#data-collection-and-preparation"><i class="fa fa-check"></i><b>2.7</b> Data collection and preparation</a></li>
+<li class="chapter" data-level="2.8" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#respecification"><i class="fa fa-check"></i><b>2.8</b> Respecification</a></li>
+<li class="chapter" data-level="2.9" data-path="structural-equation-modelling.html"><a href="structural-equation-modelling.html#reporting-results"><i class="fa fa-check"></i><b>2.9</b> Reporting results</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="introduction-to-bayesian-statistics.html"><a href="introduction-to-bayesian-statistics.html"><i class="fa fa-check"></i><b>3</b> Introduction to Bayesian statistics</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="introduction-to-bayesian-statistics.html"><a href="introduction-to-bayesian-statistics.html#priors"><i class="fa fa-check"></i><b>3.1</b> Priors</a></li>
+<li class="chapter" data-level="3.2" data-path="introduction-to-bayesian-statistics.html"><a href="introduction-to-bayesian-statistics.html#estimating-parameters"><i class="fa fa-check"></i><b>3.2</b> Estimating parameters</a></li>
+<li class="chapter" data-level="3.3" data-path="introduction-to-bayesian-statistics.html"><a href="introduction-to-bayesian-statistics.html#reporting"><i class="fa fa-check"></i><b>3.3</b> Reporting</a></li>
+<li class="chapter" data-level="3.4" data-path="introduction-to-bayesian-statistics.html"><a href="introduction-to-bayesian-statistics.html#regression-exercise"><i class="fa fa-check"></i><b>3.4</b> Regression exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="introduction-to-bsem.html"><a href="introduction-to-bsem.html"><i class="fa fa-check"></i><b>4</b> Introduction to BSEM</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="introduction-to-bsem.html"><a href="introduction-to-bsem.html#what-does-that-mean"><i class="fa fa-check"></i><b>4.1</b> What does that mean?</a></li>
+<li class="chapter" data-level="4.2" data-path="introduction-to-bsem.html"><a href="introduction-to-bsem.html#model-fit"><i class="fa fa-check"></i><b>4.2</b> Model fit</a></li>
+<li class="chapter" data-level="4.3" data-path="introduction-to-bsem.html"><a href="introduction-to-bsem.html#reporting-results-from-bsem"><i class="fa fa-check"></i><b>4.3</b> Reporting results from BSEM</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="running-bsem-analyses-in-amos.html"><a href="running-bsem-analyses-in-amos.html"><i class="fa fa-check"></i><b>5</b> Running BSEM analyses in AMOS</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="6" data-path="appendix-appendix-a.html"><a href="appendix-appendix-a.html"><i class="fa fa-check"></i><b>6</b> (APPENDIX) Appendix A</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to Bayesian structrual equation modelling</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="structural-equation-modelling" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Workshop 1:</span> Structural equation modelling<a href="structural-equation-modelling.html#structural-equation-modelling" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="what-is-structural-equation-modelling" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> What is structural equation modelling?<a href="structural-equation-modelling.html#what-is-structural-equation-modelling" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>Structural equation modelling (SEM) encompases a variety of methods that analyse covariance<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> structures <span class="citation">(<a href="#ref-Kline2016"><strong>Kline2016?</strong></a>)</span>.</p></li>
+<li><p>Pearl <span class="citation">(<a href="#ref-Pearl2012"><strong>Pearl2012?</strong></a>)</span> defined SEM as a causal inference method that takes three inputs and generates three outputs.</p>
+<ul>
+<li>Inputs:
+<ol style="list-style-type: lower-alpha">
+<li>Qualitative causal hypotheses.</li>
+<li>A set of queries about the causal relations between variables of interest.</li>
+<li>Data.</li>
+</ol></li>
+<li>Outputs:
+<ol style="list-style-type: lower-alpha">
+<li>Numeric estimates of model parameters for hypothesised effects.</li>
+<li>A set of logical implications that may not directly corespond to a specific parameter but can stil be tested in the data.</li>
+<li>The degree to which the testable implications of the model are supported by the data.</li>
+</ol></li>
+</ul></li>
+<li><p>Theory should underpin any SEM as its purpose is to test theory by specifying a model that represents it, measured using observed variables <span class="citation">(<a href="#ref-Hayduk2007"><strong>Hayduk2007?</strong></a>)</span>.</p>
+<ul>
+<li>“‘Success’ in SEM is determined by wheter the analysis deals with substantive theoretical issues regardless of whether or not a model it retained” <span class="citation">(<a href="#ref-Kline2016"><strong>Kline2016?</strong></a> pp 9-10)</span>.</li>
+</ul></li>
+<li><p>SEM can be used in both a confirmatory and exploratory fashions <span class="citation">(<a href="#ref-Joreskog1993"><strong>Joreskog1993?</strong></a>)</span>.</p>
+<ul>
+<li>Strictly confirmatory approaches will test a single model that is either retained or rejected.</li>
+<li>Exploratory approaches may test several models that are specified a priori, or it may be that the initial model was rejected and the researcher is aiming to generate a new model through modificartion of the original. The goal of this would be to find a model that: makes theoretical sense, is reasonably parsimonious, and is close enough to the data.</li>
+</ul></li>
+</ul>
+<hr />
+</div>
+<div id="variables-in-sem" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Variables in SEM<a href="structural-equation-modelling.html#variables-in-sem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Independent variables in SEM are described as <em>exogenous</em>, that is, they come from outside of the model, thus their causes are not represented in the model.</li>
+<li>Dependent variables are described as <em>endogenous</em> and they have at least one cause that is represented in the model, which can be an exogenous variable, or another endogenous variable.</li>
+<li>Both exogenous and endogenous variables will be classed either as <em>observed</em> or <em>latent</em> variables.
+<ul>
+<li>Observed variables are those that can be measured directly.</li>
+<li>Latent variables are those which cannot be measured directly.</li>
+</ul></li>
+</ul>
+<hr />
+</div>
+<div id="six-steps-of-sem" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Six steps of SEM<a href="structural-equation-modelling.html#six-steps-of-sem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>There are six basic steps for most SEM analyses; however, the process may be non-linear as the results of one step may require you to return to an earlier step:
+<ol style="list-style-type: decimal">
+<li>Model specification.</li>
+<li>Evaluation of model identification (if not identified then return to step 1).</li>
+<li>Select the measures (operationalise the constructs) and collect, prepare, and screen the data.</li>
+<li>Estimate the model.
+<ul>
+<li>Evaluate model fit; if it is poor then respecify the model if doing so is justifiable (skip to step 5); otherwise retain no model (skip to step 6).</li>
+</ul></li>
+<li>Respecify the model, which is assumed to be identified (return to step 4).</li>
+<li>Report the results.</li>
+</ol></li>
+</ul>
+</div>
+<div id="specification" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Specification<a href="structural-equation-modelling.html#specification" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Hypotheses are often expressed with graphical conceptual models. These provide a visual representation of theoretical variables of interest and expected relationships between them.</li>
+<li>Outcome variables in SEM are referred to as <em>endogenous</em> variables.
+<ul>
+<li>All must have at least one cause in the model.</li>
+<li>Some of these causes are independent variables.</li>
+</ul></li>
+<li>Independent variables in SEM are known as <em>exogenous</em> variables.
+<ul>
+<li>The causes of these are not represented in the model.</li>
+</ul></li>
+<li>Specification is the most important step.
+<ul>
+<li>Results from subsequent steps assume that the model/the hypotheses are basically correct.</li>
+</ul></li>
+<li>Making a list of changes, that are justifiable according to theory or empirical results, at this stage can be useful for step five.</li>
+</ul>
+</div>
+<div id="identification" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Identification<a href="structural-equation-modelling.html#identification" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Graphical conceptual models are useful but need to be translated into statistical models that can be analysed.</li>
+<li>Statistical models must respect certain rules/restrictions. One of these is identification.</li>
+<li>A model is identified if it is <em>theoretically</em> possible for the computer to derive a unique estimate of every model parameter. This is a property of the model, not of the data.
+<ul>
+<li>A researcher may specify a model that is true to a particular theory, but is not identified. To analyse such a model in SEM requires it to be respecified, but this may result in a model that is akin to making an intentional specification error in relation to the theory.</li>
+</ul></li>
+</ul>
+</div>
+<div id="estimation" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Estimation<a href="structural-equation-modelling.html#estimation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>A computer SEM too will be used to conduct the analysis (e.g., Mplus, lavaan in R, AMOS).</p></li>
+<li><p>Evaluate model fit.</p>
+<ol style="list-style-type: decimal">
+<li>How well does the model fit the data?
+<ul>
+<li>When a model is a poor fit to the data, consider if respecification of the model can be justified given relevant theory and results of prior empirical studies.</li>
+</ul></li>
+<li>If/when a well fitting model is four, then interpret the parameter estimates.</li>
+<li>Consider equivalent or near equivalent models.
+<ul>
+<li>An equivalent or near equivalent model may explain the data just as well as the researcher’s preferred model, but with a contradictory pattern of causal effects among some of the variables.</li>
+<li>Researchers should explain whey their preferred model should not be rejected in favour of equivalent ones.</li>
+</ul></li>
+</ol></li>
+</ul>
+</div>
+<div id="data-collection-and-preparation" class="section level2 hasAnchor" number="2.7">
+<h2><span class="header-section-number">2.7</span> Data collection and preparation<a href="structural-equation-modelling.html#data-collection-and-preparation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Data can either be in raw form, or a matrix of sumary statistics.</li>
+</ul>
+</div>
+<div id="respecification" class="section level2 hasAnchor" number="2.8">
+<h2><span class="header-section-number">2.8</span> Respecification<a href="structural-equation-modelling.html#respecification" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Researchers arrive at this step when initial model fit is poor.</li>
+<li>The list of justifiable modifications created earlier will be useful at this stage.</li>
+<li>Modifications should be guided by rational rather than statistical considerations.</li>
+</ul>
+</div>
+<div id="reporting-results" class="section level2 hasAnchor" number="2.9">
+<h2><span class="header-section-number">2.9</span> Reporting results<a href="structural-equation-modelling.html#reporting-results" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Many papers do not report results properly.</li>
+<li>There are guidelines available for reporting SEM results <span class="citation">(<a href="#ref-Appelbaum2018"><strong>Appelbaum2018?</strong></a>)</span>.</li>
+</ul>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>The covariance for two observed variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is defined as: <span class="math inline">\(cov_{XY} = r_{XY}SD_{X}SD_{Y}\)</span><a href="structural-equation-modelling.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="introduction-to-bayesian-statistics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["BSEM_intro.pdf", "BSEM_intro.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,22 +1,4 @@
----
-title: "Introduction to Bayesian structural equation modelling"
-author: "Will Hardy"
-date: "`r Sys.Date()`"
-output: bookdown::html_document2
-biblio-style: apalike
-bibliography:
-- ../../../../references/library.bib
-- ../packages.bib
-always_allow_html: yes
----
-
-
-```{r, echo=FALSE}
-knitr::write_bib(c(.packages(), 'bookdown', 'knitr', 'rmarkdown'), '../packages.bib')
-```
-
-
-# Introduction
+# Introduction to BSEM
 
 * What is Bayesian structural equation modelling (BSEM)? In their paper introducing BSEM, Muthén and Asparouhov [-@Muthen2012, p 316] stated that:
 
@@ -30,7 +12,7 @@ knitr::write_bib(c(.packages(), 'bookdown', 'knitr', 'rmarkdown'), '../packages.
 * Exploratory structural equation modelling is one alternative to tradition CFA approaches that less restrictive (i.e., it allows for cross-loadings), however it still does not allow for correlated residual error terms, nor does is it possible to specify how close to zero the cross-loadings shoudl be [@Muthen2012].
 * BSEM allows the specification of both cross-loadings and residual correlations that are *approximately zero* this is done by using small-variance (i.e., strongly informative) priors on these parameters. What approximatley zero means is defined by the user and may be informed by theory, however if these are large variance priors the model may be underidentified [@Muthen2012].
 * The user may or may not specify priors for the intended factor loadings, if they are not specified, the software default will be used.
-* It is important to consider priors before analysing the data, especially in small samples, as there is growing evidence that the "naïve" use of priors can lead to biased estimates, sometimes worse than would be obtained through ML estimation [@Smid2019].
+* It is important to consider priors before analysing the data, especially in small samples, as there is growing evidence that the "naïve" use of priors can lead to biased estimates, sometimes worse than would be obtained through ML estimation [@Smid2020].
 
 ## Model fit
 
@@ -41,4 +23,9 @@ Model fit can in BSEMs can be assessed in using a number of metrics:
 * 95% Confidence Interval for the Difference Between the Observed and the Replicated Chi-Square Values
 * Deviance Information Criterion (DIC)
 
-## References
+## Reporting results from BSEM
+
+The previous sessions have mentioned specific things that should be reported in SEM analyses and also in Bayesian analyses. It it important that the information reported from BSEM respects both of those lists.
+
+
+

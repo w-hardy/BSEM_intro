@@ -1,0 +1,649 @@
+---
+title: "Introduction to Bayesian Structural Equation Modelling"
+author: "Will A. S. Hardy"
+date: "04/06/2020"
+bibliography: 
+- [../packages.bib]
+- ../../../../../../references/library.bib
+biblio-style: apalike
+link-citations: yes
+output: bookdown::html_document2
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Structural equation modelling
+
+## What is structural equation modelling? {.smaller}
+
+* SEM is for exploring the relationships between variables and also for testing overall model fit.
+* Pearl [-@Pearl2012] defined SEM as a causal inference method that takes three inputs and generates three outputs.
+  * Inputs: 
+    * Qualitative causal hypotheses.
+    * A set of queries about the causal relations between variables of interest.
+    * Data.
+  * Outputs: 
+    * Numeric estimates of model parameters for hypothesised effects.
+    * A set of logical implications that may not directly correspond to a specific parameter but can still be tested in the data.
+    * The degree to which the testable implications of the model are supported by the data.
+* Structural equation modelling (SEM) encompasses a variety of methods that analyse covariance structures [@Kline2016].
+
+
+## The importance of theory
+
+* Theory should underpin any SEM as its purpose is to test theory by specifying a model that represents it, measured using observed variables [@Hayduk2007].
+* "'Success' in SEM is determined by whether the analysis deals with substantive theoretical issues regardless of whether or not a model it retained" [@Kline2016 pp 9-10].
+
+
+## Causal inference
+
+* Causal inference relies on study designs, assumptions, and to a lesser degree, statistical analyses.
+* "Causal assumptions are a prerequisite for validating any causal conclusion" [@Pearl2000, p 136].
+* It is important that the researcher can provide a rationale for such assumptions.
+* An important causal assumption is *temporal precedence*, that is, the cause must come before the effect in time.
+* In non-experimental designs, causal inference may only be supported by a substantive rationale that $X$ causes $Y$ and not the other way round. This is especially true when all variables are measured at a single time-point --- providing no temporal precedence.
+
+
+## Approaches to SEM
+
+* SEM can be used in both a confirmatory and exploratory fashions [@Joreskog1993].
+* Strictly confirmatory approaches will test a single model that is either retained or rejected.
+* Exploratory approaches may test several models that are specified a priori, or it may be that the initial model was rejected and the researcher is aiming to generate a new model through modification of the original. The goal of this would be to find a model that: 
+  * Makes theoretical sense.
+  * Is reasonably parsimonious.
+  * Is close enough to the data.
+
+
+## Variables in SEM
+
+* Independent variables in SEM are described as *exogenous*, that is, they come from outside of the model, thus their causes are not represented in the model.
+* Dependent variables are described as *endogenous* and they have at least one cause that is represented in the model, which can be an exogenous variable, or another endogenous variable.
+* Both exogenous and endogenous variables will be classed either as *observed* or *latent* variables. 
+   * Observed variables are those that can be measured directly and are represented by boxes in SEM diagrams.
+   * Latent variables are those which cannot be measured directly and are represented by circles or ellipses in SEM diagrams
+
+
+## Types of SEM
+
+* Observed variable (path) analyses.
+  * Relationships between observed variables.
+* Factor analyses.
+  * Confirmatory factor analysis (CFA).
+  * Exploratory factor analysis (EFA).
+* Structural regression analyses.
+  * Combination of factor analysis and path analysis.
+
+
+## Six steps of SEM
+
+* There are six basic steps for most SEM analyses; however, the process may be non-linear as the results of one step may require you to return to an earlier step:
+  1. Model specification.
+  2. Evaluation of model identification (if not identified then return to step 1).
+  3. Select the measures (operationalise the constructs) and collect, prepare, and screen the data.
+  4. Estimate the model.
+      * Evaluate model fit; if it is poor then respecify the model if doing so is justifiable (skip to step 5); otherwise retain no model (skip to step 6).
+  5. Respecify the model, which is assumed to be identified (return to step 4).
+  6. Report the results.
+
+
+## Specification
+
+* Hypotheses are often expressed with graphical conceptual models. These provide a visual representation of theoretical variables of interest and expected relationships between them.
+* Outcome variables in SEM are referred to as *endogenous* variables.
+  * All must have at least one cause in the model.
+  * Some of these causes are independent variables.
+* Independent variables in SEM are known as *exogenous* variables.
+  * The causes of these are not represented in the model.
+* Specification is the most important step.
+  * Results from subsequent steps assume that the model/the hypotheses are basically correct.
+* Making a list of changes, that are justifiable according to theory or empirical results, at this stage can be useful for step five.
+
+
+## Specification concepts
+
+* What to include?
+  * What could cause the target outcome?
+  * Most models will be misspecified, however, the best way to avoid bias is to make what would be an omitted variable and included one.
+  * This will be informed by the literature
+* Measuring hypothetical constructs.
+  * Using reliable measures is very important, especially for path analyses.
+* Model complexity.
+  * Simple models are preferred.
+* Parameter status.
+  * Each parameter can be *fixed*, *free*, or *constrained*.
+
+
+## Specification concepts: Model complexity
+
+* This is limited by the number of observations, which is the number of elements in the lower diagonal of the covariance matrix and not the sample size.
+* Where $v$ is the number of observed variables and means are not analysed:
+
+$$
+N_{observations}=\frac{v(v+1)}{2}
+$$
+
+* Each degree of freedom can be though of as an opportunity for the model to be rejected [@Raykov2000].
+* The *parsimony principle* suggests that given two models with similar fit to the data, the simpler model (with greater $df$) should be chosen assuming it is theoretically plausible.
+
+
+## Specification concepts: Parameter status {.smaller}
+
+* Each parameter can be *fixed*, *free*, or *constrained*.
+* A fixed parameter is specified to be equal to a constant.
+* A free parameter is to be estimated in the analysis.
+* A constrained parameter is estimated by the computer, but within a specified restriction, often in relation to other constrained model parameters.
+  * An *equality constraint* forces the estimates of two or more parameters to be equal.
+    * This will simplify the model by reducing the number of parameters to be estimated.
+  * A *proportionality constraint* forces one parameter to be a fraction of another.
+  * An *inequality constraint* forces an estimate to be either less or greater than a specified constant.
+  * The specification of proportionality and inequality constraints requires knowledge of the relative magnitude of effects, however such knowledge is rare.
+  * A *non-linear constraint* imposes a non-linear relation between two parameter estimates. Some methods for estimating curvilinear interactive effects of latent variables rely on non-linear constraints.
+  
+
+## Model specification: Path analysis
+
+* This is the oldest member of the SEM family.
+* Used when there are only single measures for the variables of interest.
+* Exogenous variables are both free to vary and covary. Their causes are not represented in the model.
+* Endogenous variables are assumed to be caused by at least one other measured variable in the model, exogenous or endogenous.
+  * Every endogenous variable has a *disturbance*, an unmeasured latent variable that represents residual (unexplained) variance.
+* It is best practice to avoid the specific ion of single indicator exogenous variables as they are assumed to be measured with no error.
+
+
+## Single cause
+
+```{r, fig.align="centre"}
+knitr::include_graphics("../diagrams/phd_delay_path_single_cause.png", dpi = 150)
+```
+
+* This diagram shows one observed exogenous variable (`age`) causing an endogenous observed variable (`diff`), which has a disturbance (`D1`).
+* Both `age` and `D1` are free to vary, but not covary.
+  * Some diagrams represent the variance of a variable with a double headed arrow that exits and re-enters the same variable.
+* The exogenous variable `age` is assumed to be measured without error, an assumption which does not often hold. This assumption is not required for endogenous variables as random error is accounted for in their disturbances.
+
+
+## Multiple causes
+
+```{r, fig.align="centre"}
+knitr::include_graphics("../diagrams/phd_delay_path_two_cause.png", dpi = 150)
+```
+
+* This diagram shows two observed exogenous variable (`age` and `age2`) causing an endogenous observed variable (`diff`), which has a disturbance (`D1`).
+* `age`, `age2` and `D1` are all free to vary, but only `age` and `age2` are free to covary.
+
+
+## Model specification: Factor analysis
+
+
+
+## Single factor
+
+<div class="two-column-left">
+```{r, fig.align="centre"}
+knitr::include_graphics("../diagrams/epi_single_factor.png", dpi = 275)
+```
+
+* This diagram shows a single latent variable (`extrav`) causing four observed variables (`V1`, `V3`, `V5`, and `V8`), which each have a residual error term (`d1`, `d3`, `d5`, and `d8`).
+</div>
+
+<div class="two-column-right">
+> * `extrav`, `d1`, `d3`, `d5`, and `d8` are all free to vary, but not covary.
+> * This reflects a strong hypothesis that all the shared variance between the observed variables is caused by the latent variable and that there is no shared variance in the error terms.
+> * This may be an unrealistic hypothesis, for instance when items have similar wording.
+> * It is possible to specify some error-covariance terms in the model, however with most estimators this will cause computational problems.
+</div>
+
+
+## Three factor
+
+<div class="two-column-left">
+```{r, fig.align="centre"}
+knitr::include_graphics("../diagrams/epi_three_factor.png", dpi = 250)
+```
+
+* This diagram represents three latent variables `extrav`, `neurot`, and `lying` each of which causes four indicators that have a residual error term. 
+</div>
+
+<div class="three-column-right">
+* As before, all error terms are uncorrelated.
+* All indicators are caused only by a single latent variable.
+* These may not be reasonable hypotheses depending on the constructs of interest.
+* Again, a limited number of cross-loadings or error correlations may be specified, if theoretically justified.
+</div>
+
+
+## Model specification: Structural regression
+
+* This is the most general type of SEM.
+* SR models comprise of two components:
+  * The measurement part represents the correspondence between the latent variables and their indicators.
+  * The structural part represents hypotheses about the direct or indirect effects among observed or latent variables.
+
+
+## Fully latent structural regression model
+
+<div class="two-column-left">
+```{r, fig.align="centre"}
+knitr::include_graphics("../diagrams/epi_three_factor_single_cause.png", dpi = 250)
+```
+</div>
+
+
+<div class="two-column-right">
+* This diagram represents three factors, with one factor causing another.
+* Each observed variable has an error term and the endogenous factor has a disturbance. This mean that the path from `neurot` to `lying` is adjusted for measurement error.
+</div>
+
+
+## Identification
+
+* Graphical conceptual models are useful but need to be translated into statistical models that can be analysed.
+* Statistical models must respect certain rules/restrictions. One of these is identification.
+* A model is identified if it is *theoretically* possible for the computer to derive a unique estimate of every model parameter. This is a property of the model, not of the data.
+  * A researcher may specify a model that is true to a particular theory, but is not identified. To analyse such a model in SEM requires it to be respecified, but this may result in a model that is akin to making an intentional specification error in relation to the theory.
+
+
+## Necessary conditions for identification of models
+
+1. The model degrees of freedom must be at least zero
+$$
+df_{model} = p - q
+$$
+  
+    * Where $p$ is the number of observations and $q$ is the number of parameter to be estimate (i.e., all direct effects on enogenous variables and the variances and covariances of the exogenous variables).
+2.  Every latent variable, including disturbances and error terms must be assigned a scale.
+
+
+## Data collection and preparation
+
+* Data can either be in raw form, or a matrix of summary statistics.
+* Explain the operationalisation of each construct.
+* How reliable and valid are the measures? It is best to report the reliability within your sample, but if that is not possible, then report coefficients from other studies.
+* Avoid *jingle-jangle* fallacies, confusing the test name for what it actually measures.
+* Check the accuracy of data input/coding---mistakes are easy to make---including the specification of missing values.
+* Justify your sample size.
+
+
+## Data collection: Secondary data
+
+* As stated previously, SEM analyse covariance matrices
+* The covariance ($cov$) for two observed variables $X$ and $Y$ is defined as: 
+
+$$
+cov_{XY} = r_{XY}SD_{X}SD_{Y}
+$$
+
+* If you have summary statistics for the bivariate correlation ($r_{XY}$) between two variables and the standard deviation ($SD$) of each, then you may be able to construct a covariance matrix to analyse.
+* If a paper reports these statistics, this may allow you to consider models that the original researchers did not.
+
+
+## Estimation
+
+* A computer SEM too will be used to conduct the analysis (e.g., Mplus, `lavaan` in R, AMOS).
+
+1. How well does the model fit the data?
+    * Model fit - how well do the data fit the specified model
+2. If/when a well fitting model is found, then interpret the parameter estimates.
+3. Consider equivalent or near equivalent models.
+    * An equivalent or near equivalent model may explain the data just as well as the researcher's preferred model, but with a contradictory pattern of causal effects among some of the variables.
+    * Researchers should explain whey their preferred model should not be rejected in favour of equivalent ones.
+
+
+## Model fit
+
+* When a model is a poor fit to the data, consider if respecification of the model can be justified given relevant theory and results of prior empirical studies.
+* In frequentist analyses this will be assessed using $\chi^2$ and various other indices:
+  * Goodness of fit indices - e.g., the Comparative Fit Index (CFI) or the Tucker Lewis Index (TLI). We want these to be high, preferably above .9.
+  * Badness of fit indices - e.g., Root Mean Square Error of Approximation (RMSEA) or Standardised Root Mean Square Residual (SRMR). We want these to be low, preferably below .1.
+  * See David A. Kenny’s website on measuring model fit for more [http://davidakenny.net/cm/fit.htm].
+
+
+## Respecification
+
+* Researchers arrive at this step when initial model fit is poor.
+* The list of justifiable modifications created earlier will be useful at this stage.
+* Modifications should be guided by rational rather than statistical considerations.
+* Explain which models were specified a priori and which were specified after inspecting the data or fitting a model.
+
+
+## Reporting results
+
+* Many papers do not report results properly.
+* There are guidelines available for reporting SEM results [@Boomsma2012; @Kline2016, p 464; @Appelbaum2018, pp 16-19].
+* These should include details of:
+  * Details of measures used.
+  * Description and handling of missing data.
+  * Data summary to allow secondary analysis.
+  * Specification details.
+  * Estimation procedure.
+  * Model fit.
+  * Respecification.
+  * Estimates.
+  * Discussion.
+
+
+# Introduction to Bayesian statistics
+
+## What is it?
+* Bayesian statistics assumes that all parameters (e.g., correlation coefficients) have a distribution.
+* Frequentist statistics (a.k.a. classical or "normal" statistics) assumes that there is one try population parameter (e.g., there is one true correlation coefficient).
+* Based on Bayes theorem:
+
+$$
+Posterior = \frac{Prior \times Likelihood}{Probability\;distribution}
+$$
+
+* The probability distribution is only important with multiple hypotheses or datasets, so in many instances the formula can be simplified to: $posterior = prior \times likelihood$ or even more simply, $posterior = what\; do\; we\; know\; beforehand \times what\; do\; the\; data\; say$.
+
+
+## Why would I use it? {.smaller}
+* Why not? Just because it is not "normal" is not a reason to use it as long as you effectively communicate your results.
+* Bayesian statistics allows you to:
+  * Incorporate (un)certainty in your model.
+  * Update your knowledge.
+* Some of the statistics are easier to interpret.
+  * There are no p-values.
+  * Credibility intervals (Bayesian) vs confidence intervals (Frequentist).
+    * A 95% confidence interval: in the long run, 95% of the confidence intervals will contain the true population value.
+    * A 95% credibility interval: there is 95% probability that the population value lies within the upper and lower bounds.
+* Technical reasons (e.g., identifying complex models, improving convergence, more accurate parameter estimates, non-normal data, missing data handling).
+* Small samples.
+  * Bayes is not based on central limit theorem.
+  * It is also not a magical solution to small sample problems.
+
+
+## Priors
+
+* Specific to populations - different populations will need different priors.
+* Information about the parameter.
+* Usually made up of three components:
+  * Shape (e.g., normal).
+  * Location (e.g., mean).
+  * Certainty (e.g., standard deviation).
+* Take the scale of the data, so if you want to use standardised effects then you must use standardised data.
+
+
+## Types of prior
+
+* There are lots of different names for types of priors, however they can be split into three main types:
+  * Uninformative/flat prior.
+  * Weakly informative.
+  * Strongly informative.
+
+
+## Effects on the posterior
+
+* Priors need be specified before looking at the data as they will influence the results of any analyses.
+* Strongly informative priors will result in a *prior driven posterior* where the results will be closer to the prior than the likelihood.
+* Weakly informative priors will result in a *data driven posterior* where the results will be close to the likelihood than the prior.
+* Sample size is also important, the larger the sample, the larger the influence of the likelihood on the posterior.
+* https://www.rensvandeschoot.com/fbi-the-app/
+
+
+## Where do priors come from? {.smaller}
+
+* Prior research (e.g., meta analyses, individual studies, pilot studies).
+* Expert elicitation.
+* Software defaults if you don't specify them yourself.
+  * Different software = different defaults [@vanErp2018].
+* Prior data conflict.
+  * Can be because the prior chosen does not represent the sample populations (e.g., the prior is based on the general population and your sample population is the "healthy ageing population").
+  * Can be of interest and the outcome of a study (e.g., the ability of teachers to predict students performance).
+  * Only likely to happen when you uses strongly informative priors.
+* Documenting priors.
+  * You should explain which priors were chosen and why.
+  * This should be documented and provided with any analyses.
+
+
+## Estimating parameters
+
+* One (common) way of estimating parameters in Bayesian statistics is to use a Gibbs sampler.
+* Simplifies computation.
+* Estimates the parameter assuming that the other parameters are known.
+  1. The computer programme will assign a random start value for each parameter.
+  2. Using the start values assigned in step 1, it will estimate the first parameter to replace the random start value.
+  3. Keeping the new estimated parameter value, the programme will estimate the second parameter.
+  4. This process is continued until all parameters have been estimated --- this is one iteration.
+  5. This process is repeated for $N$ iterations, where $N$ is great enough for the estimate to have stable mean and variance.
+
+
+## Convergence {.smaller}
+
+* Chains represent starting values. 
+  * An analysis with two chains will estimate all parameters from two different sets of starting values.
+  * In this instance, the iterative process is repeated until $N_{iterations}$ is great enough for the two chains to *converge* on as estimate.
+* Using multiple chains reduces the likelihood of accepting *local convergence*.
+  * A single chain may exhibit a stable mean and variance for a sufficient number of iterations to be accepted given a set of convergence criteria. However, that chain may, given enough time, change its mean. Two chains with different start values are less likely to display local convergence than one chain is, the probability of three chains displaying local convergence is smaller again, and so it goes on.
+* *Burn-in* phase to remove the influence of starting values.
+* More chains and/or more iterations allow for greater precision of estimates.
+  * Want stable means and variances within trace plots.
+  * If the model is correctly specified, it will *eventually* identify the target distribution.
+* To check that convergence is stable, it is normal to double the number of iterations to check that convergence remains.
+
+
+## Assessing convergence {.smaller}
+
+* Convergence is when all chains reach the same target distribution (i.e., there would be no way to tell which chain the sample draw was from).
+  * Including trace plots with manuscripts will allow others to (visually) assess convergence.
+  * It is also important to inspect posterior distributions --- Do they look like you expected them to? Do they make sense?
+* Autocorrelation is when an iteration is dependent on the last. One way to deal with auto correlation is through *thinning* where you only retain the *n*th sample. However, this does not actually change the estimate and some would argue that it is unnecessary if the trace plots exhibit stable means and variances.
+  * Thinning doesn't get rid of autocorrelation, it hides it. If using thinning, you require more iterations to recover precision.
+* There are several ways to assess convergence [@Kaplan2012]:
+  * Inspecting trace plots for stability and good mixing.
+  * Potential Scale Reduction Factor [PSR; @Gelman1992]. Different cut-off criteria, usually >1.1 or >1.05.
+  * Kolmogorov-Smirnov (K-S) tests: a test of equality of the posterior parameter distributions across the different chains using draws from the chains.
+  * Geweke z-statistic: compares the first and last half of the post burn-in iterations. Significant test is evidence of local convergence.
+
+
+## Sensitivity to priors
+  * The effect of priors on the posterior distribution was described above. It is important to provided evidence of how robust the estimates are, or how *sensitive* they are to the prior specification. 
+  * **This is not an attempt to find the "best" prior (e.g., the one that provides a posterior that supports your hypotheses).** And that is why it is important to specify your priors **before** you conduct any analyses.
+  * Analyses should be re-run with both more and less informative priors. Differences in parameter estimates should be reported both relative to the original estimate and in absolute values. This may be a sentence or short paragraph in the results, supported with supplementary information.
+* Depaoli and van de Schoot [@Depaoli2017] provide a check-list to help researchers avoid the naïve use of Bayesian statistics.
+
+
+## Reporting
+
+* Guidelines from the WAMBS checklist and also by Appelbaum et al. [-@Appelbaum2018, pp 17-20].
+* Priors including justification of their choice and hyper-parameters.
+* Estimation and convergence:
+  * Computer programme and sampler.
+  * Number of chains.
+  * Number of burn-in iterations.
+  * How convergence was assessed.
+* Sensitivity to priors.
+* Estimates.
+
+
+## Regression exercise
+
+https://www.rensvandeschoot.com/tutorials/ > WAMBS checklist > exercise in programme of your choice.
+
+
+# Introduction to Bayesian SEM
+
+## Introduction to Bayesian SEM
+
+* In Bayesian SEM (BSEM), the strong hypotheses that constrain hypotheses to zero are relaxed [@Muthen2012].
+* For example, indicators are allowed to load onto non-intended factors. By specifying a strongly-informative---small variance---prior for the indicators loading on the non-intended factor, the researcher can "relax" this strong hypothesis.
+* This should, as with all parameters specified, be informed by theory.
+
+
+## Why would you want to relax these hypotheses? {.smaller}
+
+* Typical maximum-likelihood (ML) approaches to confirmatory factor analysis (CFA) only allow indicators to load on their intended factors and fix cross-loadings (i.e., loadings onto non-intended factors) and the correlation between residual-error terms to zero. This approach is said to be overly restrictive and often leads to rejection of models based on the Chi-square test of good fit [@Marsh2009].
+* Researchers therefore tend to rely on other fit-indices to justify accepting a model when the Chi-square test suggests that they should not, as they suggest it is overly sensitive to trivial misfit [@Fong2013]. However, these indices will also often reject the model, especially when there are a large number of indicators [@Marsh2004]. This can lead to researchers relaxing conventional criteria for model fit and/or modifying their model post-hoc to improve the fit, which can lead to the acceptance of a poor model or one with a fit that has been improved by chance based on iterative model respecification using modification indices [@MacCallum1992].
+* Whilst cross-loadings and correlated errors terms can be specified in ML-CFA, specifying too many will often lead to an under-identified model [@Asparouhov2009].
+
+
+## Solutions to overly restrictive models
+
+* Exploratory structural equation modelling is a less restrictive alternative to traditional CFA approaches (i.e., it allows for cross-loadings), however it still does not allow for correlated residual error terms, nor does is it possible to specify how close to zero the cross-loadings should be [@Muthen2012].
+* BSEM allows the specification of both cross-loadings and residual correlations that are $\approx$ 0 by using small-variance (i.e., strongly informative) priors on these parameters. What approximately zero means is defined by the user and may be informed by theory; if these are large variance priors the model may be under-identified [@Muthen2012].
+* The user may or may not specify priors for the intended factor loadings, if they are not specified, the software default will be used.
+* It is important to consider priors before analysing the data, especially in small samples, as there is growing evidence that the "naïve" use of priors can lead to biased estimates, sometimes worse than would be obtained through ML estimation [@Smid2020].
+
+
+## The Frost Multidimensional Perfectionism Scale
+
+<div class="two-column-left">
+```{r, fig.align="centre"}
+knitr::include_graphics("../figures/fmps_items.png", dpi = 200)
+```
+</div>
+
+<div class="two-column-right">
+* The FMPS [@Frost1990], as originally specified, has six factors: concern over mistakes, personal standards, parental expectations, parental criticism, doubts about actions, organisation.
+* Does it make sense for any of the items to load onto factors other than their intended ones?
+* Would item 21 ("People will probably think less of me if I make a mistake") load onto Parental Criticism as well as Concern over Mistakes?
+* Would item 31 ("I am an organized person") load onto Personal Standards as well as Organization?
+</div>
+
+
+## Model specification in BSEM
+
+* Models are usually specified in three steps:
+  1. Same specification as in ML SEM (i.e., major-loadings only).
+  2. Step 1 + approximate zero cross-loadings.
+  3. Step 2 + approximate zero correlated residual error terms.
+* Retain the most simple model that fits the data.
+
+
+## Three factor
+
+<div class="two-column-left">
+```{r, fig.align="centre"}
+knitr::include_graphics("../diagrams/epi_three_factor.png", dpi = 250)
+```
+
+* This diagram represents three latent variables `extrav`, `neurot`, and `lying` each of which causes four indicators that have a residual error term. 
+</div>
+
+<div class="three-column-right">
+* As before, all error terms are uncorrelated.
+* All indicators are caused only by a single latent variable.
+* These may not be reasonable hypotheses depending on the constructs of interest.
+* Again, a limited number of cross-loadings or error correlations may be specified, if theoretically justified.
+</div>
+
+
+## Three factors with cross-loadings
+
+<div class="two-column-left">
+```{r, fig.align="centre"}
+knitr::include_graphics("../diagrams/epi_three_factor_cl.png", dpi = 85)
+```
+</div>
+
+<div class="three-column-right">
+* Here, indicators are caused by *all three* latent variables.
+* The intended loadings (e.g., `V1`, `V3`, `V5`, & `V8` on `extrav`) will be freely estimated and with an uninformative prior, whereas all other loadings will have a small-variance, approximate zero prior specified (e.g., N(0,.01)).
+</div>
+
+
+## Three factors with cross-loadings & correlated residuals {.smaller}
+
+<div class="two-column-left">
+```{r, fig.align="centre"}
+knitr::include_graphics("../diagrams/epi_three_factor_cl_cr.png", dpi = 85)
+```
+</div>
+
+<div class="three-column-right">
+* In this diagram, the indicators are caused by all three latent variables (with informative priors specified for non-intended loadings) and error terms are allowed to correlate, but again with informative $\approx$ 0 priors specified.
+* There are different ways to specify these priors [see @Muthen2012 for a discussion].
+* One way is the same as the cross-loadings, the other is using the Inverse Wishart prior. RVs ~ IW(1,k-6) and CRs ~ IW(0,k-6).
+</div>
+
+
+## Model fit
+
+Model fit can in BSEMs can be assessed in using a number of metrics:
+
+* Number of free parameters.
+* Posterior Predictive p-value (PPp value).
+  * PPp values $\approx$ .5 indicate good fit.
+  * PPp values < .05 indicates poor fit.
+* 95% Confidence Interval for the Difference Between the Observed and the Replicated Chi-Square Values.
+  * 95% CIs centred on zero indicate good fit.
+* Deviance Information Criterion (DIC).
+  * Lower is better but can only be used to compare models of the same data.
+  * Accounts for model complexity better than other information criteria.
+* See @Cain2019 for further discussion of PPp and DIC.
+  
+
+## Interpreting parameters
+
+* Interpret in the same way that you would for SEM or regression.
+  * Unstandardised and standardised.
+  * Parameters that are different to zero will have 95% CIs that do not include 0.
+* Are any of the estimates for the approximate zero parameters greater than what you might consider to be approximately zero?
+* Precision of estimates is important to consider too [@Zitzmann2019].
+
+
+## Reporting results from BSEM
+
+The previous sessions have mentioned specific things that should be reported in SEM analyses and also in Bayesian analyses. It it important that the information reported from BSEM respects both of those lists.
+
+* Convergence.
+  * Inspecting trace plots for all parameters. Looking for good mixing with stable means and variances.
+  * PSR. Less that 1.1 for at least the second half of the iterations. 
+* Model fit.
+* Parameters.
+  * Mean/Median [2.5% CI, 97.5% CI].
+* Sensitivity analysis.
+  * More informative (e.g., N(0,.05)).
+  * Less informative (e.g., N(0,.15)).
+  
+
+## Discussion of BSEM in the literature
+
+* Not all researchers agree with this method, therefore there is some discussion in the literature, particularly the specification of correlated residuals:
+  * @MacCallum2012; @Rindskopf2012; @Muthen2012a.
+  * @Stromeyer2015; @Asparouhov2015.
+
+
+# Running BSEM analyses in AMOS
+
+## Running BSEM analyses in AMOS {.smaller}
+
+* `View > Analysis Properties > Estimation > Estimate means and intercepts`
+
+1. Missing data
+   1. Missing data can be dealt with prior to BSEM analysis in a variety of ways ranging from the simple (e.g., listwise deletion, mean imputation) to far more complicated methods (e.g., multiple imputation).
+   2. It is beyond the scope of this course to cover the various techniques and when to use them.
+2. Standardise variables or standardise output
+3. Model specification
+   1. Major loadings only
+   2. Major loadings + minor cross-loadings
+   3. Major loadings + minor cross-loadings + approximate zero covariance
+4. Additional output
+   1. Indirect moments
+5. Run
+6. Prior specification
+   * Default for all variables in AMOS is an uninformative prior (uniform; - 1^38 to +1^38).
+   * These must be specified after the model starts running, then you must restart the estimation.
+7. Convergence: 
+  1. As far as I can tell, AMOS only uses a single MCMC chain, comparing an earlier portion of the chain to a latter part to assess convergence.
+  2. PSR
+  3. SC for individual parameters
+  4. Trace plots for each parameter
+    1. First and last box creates polygons for the first and last third of the samples
+  5. Posterior
+8. Fit: 
+  1. PPp
+  2. Chi-square
+  3. DIC
+9. Parameter estimates
+  * Standardised parameter estimates can be obtained with the following steps:
+    1. Before running the analyses `View > Analysis Properties > Output > (Indirect, direct & total effects) + (Standardized estimates)`.
+    2. Once you have a solution that has converged and fits the data, `View > Additional Estimands > Standardized Direct/Indirect/Total Effects` and then find the relevant statistics (e.g., mean, 95% CIs)
+10. Sensitivity analyses
+    1. More informative priors
+    2. Less informative priors
+    
+## References
+<div class="references">
+

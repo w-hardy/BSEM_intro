@@ -1,0 +1,20 @@
+title: two factor BSEM CFA example with Mplus demo
+
+data: file is ../../data/epi_na_omit_mplus_demo.csv;
+
+variable:
+names are V2 V4 V7 V6 V12 V18;
+
+analysis:
+estimator = bayes;
+fbiterations = 100000;
+chains = 2;
+proc = 2;
+
+model:
+neurot by V2-V7;
+lying by V6-V18;
+
+
+output: tech1 tech8 stdyx;
+plot: type=plot2;

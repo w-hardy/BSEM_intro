@@ -1,22 +1,4 @@
----
-title: "Introduction to Bayesian statistics"
-author: "Will Hardy"
-date: "`r Sys.Date()`"
-output: bookdown::html_document2
-biblio-style: apalike
-bibliography:
-- ../../../../references/library.bib
-- ../packages.bib
-always_allow_html: yes
----
-
-
-```{r, echo=FALSE}
-knitr::write_bib(c(.packages(), 'bookdown', 'knitr', 'rmarkdown'), '../packages.bib')
-```
-
-
-# Introduction
+# Introduction to Bayesian statistics
 
 * What is it?
   * Bayesian statistics assumes that all parameters (e.g., corelation coefficients) have a distribution.
@@ -107,9 +89,12 @@ knitr::write_bib(c(.packages(), 'bookdown', 'knitr', 'rmarkdown'), '../packages.
 * Depaoli and van de Schoot [@Depaoli2017] provide a checklist to help researchers avoid the naïve use of Bayesian statistics.
 
 
+## Reporting
+
+* Guidelines from the WAMBS checklist and also by Appelbaum et al. [-@Appelbaum2018, pp 17-20].
+
+
 ## Regression exercise
 
 https://www.rensvandeschoot.com/tutorials/ > WAMBS checklist > exercise in programme of your choice.
 
-
-## References
